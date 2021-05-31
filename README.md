@@ -1,5 +1,7 @@
 # EduCzesto
 
+![Logo EduCzesto](./LogoEduczesto.png)
+
 Este repositorio se creó con la finalidad de contener todos los archivos relacionados a:
 - Landing page de EduCzesto
 - Programa de envío de correos

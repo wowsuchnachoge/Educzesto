@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"> 
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+   <meta http-equiv="x-ua-compatible" content="ie-edge"> 
+   <meta name="google" content="notranslate"/> 
+   <meta name="description" content="">
+	<title>Registro</title>
+
+	<!-- Frameworks
+	––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<link rel="stylesheet" type="text/css" href="css/libscss/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/libscss/entypo/font/entypo.css">
+	<link rel="stylesheet" type="text/css" href="css/libscss/tuesday.css"/>
+	<link rel="stylesheet" type="text/css" href="css/libscss/vov.css"/>
+	<script type="text/javascript" src="js/libsjs/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="js/libsjs/popper.js"></script>
+	<script type="text/javascript" src="js/libsjs/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+
+</head>
+<body>
+	<header class="p-3 bg-primary text-white">
+		<div class="container">
+			<div class="d-flex text-dark">
+				<h4>Registro</h4>
+
+			</div>
+		</div>
+	</header>
+	<main>
+		<div class="container">
+			<div class="row mx-2 mt-4">
+				<div class="col">
+					
+					<form action="index.html" class="mb-4" method="post">
+						<div class="form-group">
+							<label for="inptNombre" class="font-weight-bold">Nombre</label>
+							<input type="text" class="form-control" id="inptNombre" maxlength="30">
+						</div>
+						<div class="form-group">
+							<label for="inptApellidoPaterno" class="font-weight-bold">Apellido paterno</label>
+							<input type="text" class="form-control" id="inptApellidoPaterno" maxlength="30">
+						</div>
+						<div class="form-group">
+							<label for="inptApellidoMaterno" class="font-weight-bold">Apellido materno</label>
+							<input type="text" class="form-control" id="inptApellidoMaterno" maxlength="30">
+						</div>
+						<div class="form-group mt-4">
+							<label for="inptFechaNacimiento" class="font-weight-bold">Fecha de nacimiento</label>
+							<input type="date" class="form-control" id="inptFechaNacimiento">
+							<small id="FechaNacimientoInfo" class="form-text text-muted">Esta será tu contraseña.</small>
+						</div>
+						<div class="form-group">
+							<label for="inptTipoUsuario" class="font-weight-bold">Tipo de usuario</label>
+							<select class="form-control" id="inptTipoUsuario">
+								<option>Alumno(a)</option>
+								<option>Tutor</option>
+								<option>Vacante</option>
+								<option>Administrador</option>
+							</select>
+							<small id="tipoUsuarioInfo" class="form-text text-muted">Si quieres aplicar tu servicio con nosotros, selecciona "Vacante".</small>
+						</div>
+						<div class="form-group">
+							<label for="sexoUsuario" class="font-weight-bold">Género</label>
+							<select class="form-control" id="sexoUsuario">
+								<option>Femenino</option>
+								<option>Masculino</option>
+							</select>
+						</div>
+						<div class="form-group mt-4">
+							<label for="inptEmail" class="font-weight-bold">Email</label>
+							<input type="mail" class="form-control" id="inptEmail" maxlength="30">
+						</div>
+						<div class="form-group mt-4">
+							<label for="inptContacto" class="font-weight-bold">Contacto</label>
+							<input type="text" class="form-control" id="inptContacto" maxlength="30">
+							<small id="contactoInfo" class="form-text text-muted">Por favor proporcionanos un número telefónico o algún correo alternativo en el cual podamos mantener comunicación contigo.</small>
+						</div>
+						<button type="submit" class="btn btn-primary">Registrarse</button>
+						<a class="btn btn-dark" href="index.html">Cancelar</a>
+					</form>
+				</div>
+				</div>
+			</div>
+		</div>
+	</main>
+</body>
+</html>

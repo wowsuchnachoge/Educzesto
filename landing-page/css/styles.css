@@ -49,6 +49,7 @@ body {
     overflow: hidden;
     padding: 0 40px !important;
     padding-bottom: 95px !important;
+    color: #fff !important;
 }
 
 .content-section p {
@@ -83,32 +84,51 @@ body {
 * MARK: Sections
 */
 
-#importancia-educacion {
+#programa-content {
     background-color: #02833B;
 }
 
-#importancia-educacion p {
+#programa-content p, h2, h5 {
     color: #ffffffff;
 }
 
-#nosotros {
+.video-container {
+    padding-top: 60px;
+}
+
+#nosotros-content {
     background-color: #e84e36ff;
 }
 
-#curiosidades {
-    background-color: #02833B;
+
+
+#redes-sociales-content {
+    background-color: #023a83;
 }
 
-#contacto {
+#contacto-content {
     background-color: #ffcd00;
 }
 
-#contacto a {
+#contacto-content a {
     text-decoration: none;
     color: rgba(0,0,0,.55);
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
 }
 
-#contacto a:hover {
+#contacto-content a:hover {
     color: rgba(0,0,0,.7);
+}
+
+#carrusel-frases-tutores {
+    padding-top: 50px;
+}
+
+.carousel-item .d-block {
+    margin: 50px 0;
+    border-radius: 20px;
+    padding: 100px 40px;
+    background-color: #fff;
+    color: rgba(0,0,0,.55);
+    box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.35) !important;
 }

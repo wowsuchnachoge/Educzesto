@@ -7,19 +7,22 @@
         <script src="./scripts.js" type="text/javascript"></script>
     </head>
     <body>
-        <h1 style="margin:15px 30px;color: #ffffff;">CzestoMail 😎</h1>
+        <h1 style="margin:15px 30px;color: #ffffff;">EduCzesto mailer 😎</h1>
         <form method="post" action="send.php" id="mail-composer" enctype="multipart/form-data">
             <div class="input-container">
                 <input type="text" name="subject" placeholder="Asunto" id="subject-input"></input>
             </div>
-            <!-- <div class="input-container">
+            <div class="input-container">
                 <p>Enviado por:</p>
-            </div> -->
+            </div>
             <div class="input-container">
                 <select name="from">
                     <option value="Información Parroquia Madre de Dios de Czestochowa" selected>Información Parroquia Madre de Dios de Czestochowa</option>
                     <option value="EduCzesto">EduCzesto</option>
                 </select>
+            </div>
+            <div class="input-container">
+                <span><input type="checkbox" name="test" value="test" />Test?</span>
             </div>
             <div class="input-container" id="email-body-container">
                 <div class="email-body-line" id="email-body-line-1">

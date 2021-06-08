@@ -16,9 +16,10 @@ $lineTotal = $_POST["email-body-line-value"];
 try {
     // $mail->SMTPDebug = SMTP::DEBUG_SERVER; 
     $mail->isSMTP();
-    $mail->Host = 'localhost';
+    $mail->Host = 'relay.secureserver.net';
     $mail->SMTPAuth = false;
     $mail->SMTPKeepAlive = true;
+    $mail->SMTPAutoTLS = false;
     // $mail->Username = 'edu.czesto@gmail.com';
     // $mail->Password = 'Serviciosocial2020';
     $mail->SMTPSecure = false;

@@ -100,15 +100,6 @@ body {
     background-color: #e84e36ff;
 }
 
-.carousel-image {
-    height: 200px;
-    width: 200px;
-    object-fit: cover;
-    margin: 50px;
-    box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.35);
-    border-radius: 20px;
-}
-
 #redes-sociales-content {
     background-color: #023a83;
 }
@@ -138,4 +129,13 @@ body {
     background-color: #fff;
     color: rgba(0,0,0,.55);
     box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.35) !important;
+}
+
+.carousel-image {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    margin: 50px;
+    box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.35);
+    border-radius: 20px;
 }

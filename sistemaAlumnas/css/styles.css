@@ -1,0 +1,23 @@
+	.bg-primary{
+	}
+
+	.btn-primary{
+		border: 0px;
+		color: #000;
+	}
+
+	.btn-primary:hover{
+		border: 0px;
+		color: #000;
+	}
+
+	.btn-primary:active{
+		border: 0px;
+		color: #000;
+	}
+
+/*	.active{
+		background-color: #FFCD00 !important;
+		border: 0px;
+		color: #000 !important;
+	}*/

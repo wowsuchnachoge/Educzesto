@@ -16,19 +16,18 @@ $lineTotal = $_POST["email-body-line-value"];
 try {
     // $mail->SMTPDebug = SMTP::DEBUG_SERVER; 
     $mail->isSMTP();
-    $mail->Host = 'relay.secureserver.net';
-    $mail->SMTPAuth = false;
+    $mail->Host = 'p3plzcpnl466174.educzesto.org';
+    $mail->SMTPAuth = true;
     $mail->SMTPKeepAlive = true;
-    $mail->SMTPAutoTLS = false;
-    // $mail->Username = 'edu.czesto@gmail.com';
-    // $mail->Password = 'Serviciosocial2020';
-    $mail->SMTPSecure = false;
-    $mail->Port = 25;
+    $mail->Username = 'mail@educzesto.org';
+    $mail->Password = 'Serviciosocial2020';
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port = 587;
     $mail->CharSet = 'UTF-8';
     $mail->Encoding = 'base64';
 
-    $mail->setFrom('edu.czesto@gmail.com', $from);
-    $mail->addAddress('edu.czesto@gmail.com', 'Undisclosed-recipients');
+    $mail->setFrom('mail@educzesto.org', $from);
+    $mail->addAddress('mail@educzesto.org', 'Undisclosed-recipients');
 
     $mail->isHTML(true);
 
@@ -71,7 +70,7 @@ try {
 
     // TODO: Implementar lectura de registros desde la base de datos para evitar fallas por lectura de archivos
     // NOTE: Todos los datos de correos y nombres actualmente se obtienen de los archivos csv localizados en el directorio /educzesto-mailer/assets
-    if(isset($POST['test'])) {
+    if(isset($_POST['test'])) {
         $filename = "./assets/EjemplosDeveloper.csv";
     } else {
         // Nombre de archivo cuando no es envío de prueba

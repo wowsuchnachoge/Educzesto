@@ -1,13 +1,11 @@
 <?php
+require './PHPMailer/src/Exception.php';
+require './PHPMailer/src/PHPMailer.php';
+require './PHPMailer/src/SMTP.php';
+
 use PHPMailer\PHPMailer\PHPMailer;
-// use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-require 'vendor/phpmailer/phpmailer/src/Exception.php';
-require 'vendor/phpmailer/phpmailer/src/PHPMailer.php';
-require 'vendor/phpmailer/phpmailer/src/SMTP.php';
-
-require 'vendor/autoload.php';
 
 $mail = new PHPMailer(true);
 
@@ -18,13 +16,13 @@ $lineTotal = $_POST["email-body-line-value"];
 try {
     // $mail->SMTPDebug = SMTP::DEBUG_SERVER; 
     $mail->isSMTP();
-    $mail->Host = 'smtp.gmail.com';
-    $mail->SMTPAuth = true;
+    $mail->Host = 'localhost';
+    $mail->SMTPAuth = false;
     $mail->SMTPKeepAlive = true;
-    $mail->Username = 'edu.czesto@gmail.com';
-    $mail->Password = 'Serviciosocial2020';
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-    $mail->Port = 587;
+    // $mail->Username = 'edu.czesto@gmail.com';
+    // $mail->Password = 'Serviciosocial2020';
+    $mail->SMTPSecure = false;
+    $mail->Port = 25;
     $mail->CharSet = 'UTF-8';
     $mail->Encoding = 'base64';
 

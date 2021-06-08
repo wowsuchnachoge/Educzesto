@@ -62,17 +62,25 @@ try {
         // TODO: Crear firma de Educzesto
     } else {
         // Información Parroquia Madre de Dios de Czestochowa
-        if (!$mail->AddEmbeddedImage("/home/wowsuchnachoge/Educzesto/AgustinosRecoletos.png", 'AgustinosRecoletos.png', 'AgustinosRecoletos.png')) {
+        if (!$mail->AddEmbeddedImage("./assets/AgustinosRecoletos.png", 'AgustinosRecoletos.png', 'AgustinosRecoletos.png')) {
             echo 'Failed to attach signature';
         } else {
             $mail->Body .= '<br><br>Atentamente,<br><br><img alt="Agustinos Recoletos" src="cid:AgustinosRecoletos.png" style="width:150px">';
         }
     }
     $mail->Body .= '</body></html>';
-    // $mail->AltBody = 'To view the message, please use an HTML compatible email viewer!';
 
+    // TODO: Implementar lectura de registros desde la base de datos para evitar fallas por lectura de archivos
+    // NOTE: Todos los datos de correos y nombres actualmente se obtienen de los archivos csv localizados en el directorio /educzesto-mailer/assets
+    if(isset($POST['test'])) {
+        $filename = "./assets/EjemplosDeveloper.csv";
+    } else {
+        // Nombre de archivo cuando no es envío de prueba
+        $filename = "./assets/EjemplosTutores.csv";
+    }
+    
     // Enviar correos a toda la lista del CSV
-    if(($handle = fopen('/home/wowsuchnachoge/Educzesto/Ejemplos.csv', 'r')) !== FALSE) {
+    if(($handle = fopen($filename, 'r')) !== FALSE) {
         // Leer la primer linea y no hacer nada
         $row = fgetcsv($handle, 100);
         while(($row = fgetcsv($handle, 100)) !== FALSE) {
@@ -84,5 +92,5 @@ try {
 } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
-header('Location: http://192.168.1.164');
+header('Location: http://educzesto.org/login/educzesto-mailer');
 ?>

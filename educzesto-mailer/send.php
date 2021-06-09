@@ -16,11 +16,11 @@ $lineTotal = $_POST["email-body-line-value"];
 try {
     // $mail->SMTPDebug = SMTP::DEBUG_SERVER; 
     $mail->isSMTP();
-    $mail->Host = 'p3plzcpnl466174.educzesto.org';
+    $mail->Host = 'p3plzcpnl466174.prod.phx3.secureserver.net';
     $mail->SMTPAuth = true;
     $mail->SMTPKeepAlive = true;
     $mail->Username = 'mail@educzesto.org';
-    $mail->Password = 'Serviciosocial2020';
+    $mail->Password = 'ServicioSocial2021';
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port = 587;
     $mail->CharSet = 'UTF-8';
@@ -57,11 +57,15 @@ try {
     // Revisar de que cuenta se está enviando para firma
     if($from == "EduCzesto") {
         // EduCzesto
-        // TODO: Crear firma de Educzesto
+        if (!$mail->AddEmbeddedImage("./assets/LogoEduczesto.png", 'EduCzesto.png', 'EduCzesto.png')) {
+            echo 'Failed to attach EduCzesto signature';
+        } else {
+            $mail->Body .= '<br><br>Atentamente,<br><br><img alt="EduCzesto" src="cid:EduCzesto.png" style="width:150px">';
+        }
     } else {
         // Información Parroquia Madre de Dios de Czestochowa
         if (!$mail->AddEmbeddedImage("./assets/AgustinosRecoletos.png", 'AgustinosRecoletos.png', 'AgustinosRecoletos.png')) {
-            echo 'Failed to attach signature';
+            echo 'Failed to attach Agustinos Recoletos signature';
         } else {
             $mail->Body .= '<br><br>Atentamente,<br><br><img alt="Agustinos Recoletos" src="cid:AgustinosRecoletos.png" style="width:150px">';
         }

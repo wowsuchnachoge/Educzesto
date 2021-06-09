@@ -2,9 +2,11 @@
 require './PHPMailer/src/Exception.php';
 require './PHPMailer/src/PHPMailer.php';
 require './PHPMailer/src/SMTP.php';
+require './dbConf.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+// use PHPMailer\PHPMailer\SMTP;
 
 
 $mail = new PHPMailer(true);
@@ -72,24 +74,27 @@ try {
     }
     $mail->Body .= '</body></html>';
 
-    // TODO: Implementar lectura de registros desde la base de datos para evitar fallas por lectura de archivos
-    // NOTE: Todos los datos de correos y nombres actualmente se obtienen de los archivos csv localizados en el directorio /educzesto-mailer/assets
     if(isset($_POST['test'])) {
-        $filename = "./assets/EjemplosDeveloper.csv";
+        $table = 'test_mail';
     } else {
-        // Nombre de archivo cuando no es envío de prueba
-        $filename = "./assets/EjemplosTutores.csv";
+        $table = 'mail';
     }
-    
-    // Enviar correos a toda la lista del CSV
-    if(($handle = fopen($filename, 'r')) !== FALSE) {
-        // Leer la primer linea y no hacer nada
-        $row = fgetcsv($handle, 100);
-        while(($row = fgetcsv($handle, 100)) !== FALSE) {
-            $mail->addBCC($row[2], $row[1]);
+    $conn = mysqli_connect($DB_CONF['server'], $DB_CONF['user'], $DB_CONF['password'], $DB_CONF['database']);
+
+    if(!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+
+    $query = "SELECT nombre, email FROM $table";
+
+    $result = mysqli_query($conn, $query);
+
+    if(mysqli_num_rows($result) > 0) {
+        while($row = mysqli_fetch_assoc($result)) {
+            $mail->addBCC($row["email"], $row["nombre"]);
         }
-        fclose($handle);
     }
+
     $mail->send();
 } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";

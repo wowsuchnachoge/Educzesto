@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"> 
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+   <meta http-equiv="x-ua-compatible" content="ie-edge"> 
+   <meta name="google" content="notranslate"/> 
+   <meta name="description" content="">
+   <link rel="icon" type="image/png" href="img/logo.png"/>
+	<title>Registro</title>
+
+	<!-- Frameworks
+	––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<link rel="stylesheet" type="text/css" href="css/libscss/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/libscss/entypo/font/entypo.css">
+	<link rel="stylesheet" type="text/css" href="css/libscss/tuesday.css"/>
+	<link rel="stylesheet" type="text/css" href="css/libscss/vov.css"/>
+	<script type="text/javascript" src="js/libsjs/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="js/libsjs/popper.js"></script>
+	<script type="text/javascript" src="js/libsjs/bootstrap.min.js"></script>
+
+	<!-- Recursos locales
+	––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<script type="text/javascript" src="js/registro.js"></script>
+
+</head>
+<body>
+	<header class="p-3 bg-primary text-white">
+		<div class="container">
+			<div class="d-flex text-dark">
+				<a class="nav-link text-dark" href="index.php" role="button" style="margin-top: -5px;">
+					<i class="icon-left-open-big text-dark mr-2"></i>
+				</a>
+				<h4 class="font-weight-bold">Registro</h4>
+			</div>
+		</div>
+	</header>
+	<main>
+		<div class="container">
+			<div class="row mx-2 mt-4">
+				<div class="col">
+					<form action="sql/controladores/cntRegistro.php" method="POST">
+
+						<div class="alert alert-dismissible alert-secondary">
+							Si estás realizando tu servicio con nosotros, selecciona <a href="#" class="alert-link">"Tutor"</a>.
+						</div>
+						<div class="form-group">
+							<label for="inptTipoUsuario" class="font-weight-bold">Tipo de usuario</label>
+							<select class="form-control" id="inptTipoUsuario" name="inptTipoUsuario">
+								<option value="1">Alumno(a)</option>
+								<option value="2">Tutor</option>
+							</select>
+						</div>
+						<hr>
+						<div class="form-group alumno tutor">
+							<label for="inptNombre" class="font-weight-bold">Nombre</label>
+							<input type="text" class="form-control" id="inptNombre" name="inptNombre" maxlength="40">
+							<div class="invalid-feedback">Campo vacío.</div>
+						</div>
+						<div class="form-group alumno tutor">
+							<label for="inptApellidoPaterno" class="font-weight-bold">Apellido paterno</label>
+							<input type="text" class="form-control" id="inptApellidoPaterno" name="inptApellidoPaterno" maxlength="40">
+							<div class="invalid-feedback">Campo vacío.</div>
+						</div>
+						<div class="form-group alumno tutor">
+							<label for="inptApellidoMaterno" class="font-weight-bold">Apellido materno</label>
+							<input type="text" class="form-control" id="inptApellidoMaterno" name="inptApellidoMaterno" maxlength="40">
+							<div class="invalid-feedback">Campo vacío.</div>
+						</div>
+						<div class="form-group mt-4 alumno tutor">
+							<label for="inptFechaNacimiento" class="font-weight-bold">Fecha de nacimiento</label>
+							<input type="date" class="form-control" id="inptFechaNacimiento" name="inptFechaNacimiento">
+							<div class="invalid-feedback">Campo sin modificar.</div>
+							<small id="FechaNacimientoInfo" class="form-text text-muted">Esta será su contraseña para acceder al sistema.</small>
+						</div>
+						<div class="form-group alumno tutor">
+							<label for="generoUsuario" class="font-weight-bold">Género</label>
+							<select class="form-control" id="generoUsuario" name="generoUsuario">
+								<option value="1">Femenino</option>
+								<option value="2">Masculino</option>
+							</select>
+						</div>
+						<div class="form-group mt-4 alumno tutor">
+							<label for="inptEmail" class="font-weight-bold">Email</label>
+							<input type="mail" class="form-control" id="inptEmail" name="inptEmail" maxlength="40">
+						</div>
+
+						<div class="form-group mt-4 alumno tutor">
+							<label for="inptTel" class="font-weight-bold">Celular</label>
+							<input type="tel" class="form-control" id="inptTel" name="inptTel" maxlength="20">
+							<div class="invalid-feedback">Campo vacío.</div>
+						</div>
+
+						<div class="form-group mt-4 alumno tutor">
+							<label for="inptContacto" class="font-weight-bold">Contacto</label>
+							<input type="text" class="form-control" id="inptContacto" name="inptContacto" maxlength="80">
+							<small id="contactoInfo" class="form-text text-muted">Por favor proporcionanos un número telefónico o algún correo alternativo en el cual podamos mantener comunicación contigo.</small>
+						</div>
+
+						<div class="form-group alumno">
+							<label for="inptTrabAct" class="font-weight-bold">Trabajo actual</label>
+							<select class="form-control" id="inptTrabAct" name="inptTrabAct">
+								<option value="1">Empleada doméstica</option>
+								<option value="2">Otro</option>
+							</select>
+						</div>
+
+						<div class="form-group mt-4 alumno">
+							<label for="inptZonaTrab" class="font-weight-bold">Zona de trabajo</label>
+							<input type="text" class="form-control" id="inptZonaTrab" name="inptZonaTrab" maxlength="80">
+						</div>
+
+						<div class="form-group alumno">
+							<label for="inptNvlEstd" class="font-weight-bold">Nivel de estudios</label>
+							<select class="form-control" id="inptNvlEstd" name="inptNvlEstd">
+								<option value="1">Primaria</option>
+								<option value="2">Secundaria</option>
+								<option value="3">Preparatoria</option>
+							</select>
+						</div>
+
+						<div class="form-group alumno">
+							<label for="inptNvlEstdDiag" class="font-weight-bold">Nivel de estudios <span class="badge bg-primary">diagnosticado</span></label>
+							<select class="form-control" id="inptNvlEstdDiag" name="inptNvlEstdDiag">
+								<option value="1">Primaria</option>
+								<option value="2">Secundaria</option>
+								<option value="3">Preparatoria</option>
+							</select>
+							<small class="form-text text-muted" id="guiasHelp">Consulta las guías de diagnóstico <a href="#">aquí</a></small>
+						</div>
+
+						<div class="form-group mt-4 alumno">
+							<label for="inptMotiv" class="font-weight-bold">¿Tienes alguna motivación que te gustaría compartirnos?</label>
+							<input type="text" class="form-control" id="inptMotiv" name="inptMotiv" maxlength="280">
+						</div>
+
+						<div class="form-group mt-4 alumno">
+							<label for="inptInter" class="font-weight-bold">¿Cuáles son tus intereses?</label>
+							<input type="text" class="form-control" id="inptInter" name="inptInter" maxlength="280">
+						</div>
+
+						<div class="form-group mt-4 alumno">
+							<label for="inptIncnt" class="font-weight-bold">¿Cómo podríamos incentivarte a realizar las actividades?</label>
+							<input type="text" class="form-control" id="inptIncnt" name="inptIncnt" maxlength="280">
+						</div>
+
+						<details class="alumno">
+							<summary>Comunicación y conciencia</summary>
+							<br>
+							<div class="form-group alumno">
+								<label for="inptNivelCom" class="font-weight-bold">Nivel de comunicación</label>
+								<select class="form-control" id="inptNivelCom" name="inptNivelCom">
+									<option value="1">Alta</option>
+									<option value="2">Media</option>
+									<option value="3">Baja</option>
+								</select>
+							</div>
+							<div class="form-group alumno">
+								<label for="inptNivelCon" class="font-weight-bold">Nivel de conciencia</label>
+								<select class="form-control" id="inptNivelCon" name="inptNivelCon">
+									<option value="1">Alta</option>
+									<option value="2">Media</option>
+									<option value="3">Baja</option>
+								</select>
+							</div>
+
+						</details>
+
+						<div class="form-group alumno">
+					      <label for="inptSelPers" class="form-label mt-4 font-weight-bold">¿Cómo definirías tu personalidad?</label><br>
+					      <select name="inptSelPers[]" size="18" multiple="MULTIPLE" class="form-select w-100" id="recipients" style="height: 300px;">
+								<option value="1"> Reservada </option>
+								<option value="2"> Sumisa </option>
+								<option value="3"> Seria </option>
+								<option value="4"> Introvertida </option>
+								<option value="5"> Confiada </option>
+								<option value="6"> Metódica </option>
+								<option value="7"> Conservadora </option>
+								<option value="8"> Dependiente </option>
+								<option value="9"> Relajada </option>
+								<option value="10"> Extrovertida </option>
+								<option value="11"> Dominante </option>
+								<option value="12"> Entusiasta </option>
+								<option value="13"> Extrovertida </option>
+								<option value="14"> Suspicaz </option>
+								<option value="15"> Creativa </option>
+								<option value="16"> Curiosa </option>
+								<option value="17"> Autosuficiente </option>
+								<option value="18"> Tensa </option>
+					      </select>
+					      <small class="form-text text-muted">Puedes seleccionar varios atributos manteniendo presionada la tecla <strong>CTRL</strong>.</small>
+					   </div>
+
+						<div class="form-group alumno">
+							<label for="inptNotas" class="form-label mt-4">Notas adicionales</label>
+							<textarea class="form-control" id="inptNotas" name="inptNotas" rows="4"></textarea>
+						</div>
+						<hr>
+						<span class="badge bg-danger text-light mb-2" id="alrtRegistro">Favor de completar los campos vacíos</span>
+						<br>
+						<button type="submit" class="btn btn-primary" id="btnRegistro">Registrarse</button>
+						<a class="btn btn-dark" href="index.php">Cancelar</a>
+					</form>
+				</div>
+				</div>
+			</div>
+		</div>
+		<br>
+	</main>
+</body>
+</html>

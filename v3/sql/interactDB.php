@@ -2,7 +2,7 @@
 
 	class InteractDB{
 
-		private $hostname_db = "localhost";
+		private $hostname_db = "173.201.185.124";
 		private $database_db = "sistemaAlumnas";
 		private $username_db = "educzesto";
 		private $password_db = "ServicioSocial2021";
@@ -45,9 +45,9 @@
 	      // print "En el constructor InteractDB\n";
 			$this->conexion = mysqli_connect($this->hostname_db, $this->username_db, $this->password_db);
 			mysqli_select_db($this->conexion,$this->database_db) or die ("Ninguna DB seleccionada");
-	   }
+		}
 
-	  	/* Minutas
+		/* Minutas
 		––––––––––––––––––––––––––––––––––––––––––––––––– */
 		public function crearMinuta($fechaMinuta){
 
@@ -139,11 +139,10 @@
 		}
 
 		public function cargaAcuerdosMinuta($idMinuta){
-	   	
-	   	$accion_nm = "SELECT idAcuerdo, acuerdo, responsable, fechaLimite FROM acuerdos WHERE idMinuta = '$idMinuta'";
-	   	$consulta_nm = mysqli_query($this->conexion,$accion_nm) or die(mysqli_error());
+			$accion_nm = "SELECT idAcuerdo, acuerdo, responsable, fechaLimite FROM acuerdos WHERE idMinuta = '$idMinuta'";
+			$consulta_nm = mysqli_query($this->conexion,$accion_nm) or die(mysqli_error());
 
-	   	while($fila = mysqli_fetch_assoc($consulta_nm)){
+			while($fila = mysqli_fetch_assoc($consulta_nm)){
 
 				array_push($this->idAcuerdos,$fila['idAcuerdo']);
 				array_push($this->acuerdos,$fila['acuerdo']);
@@ -173,54 +172,51 @@
 
 			$accion_nm = sprintf("UPDATE acuerdos SET desglose='%s' WHERE idMinuta = '%d'",$txtdesgloseMinuta, $idMinuta);
 
-				  		// Armamos el query
-	  		$accion_nm = "UPDATE acuerdos SET";
+			// Armamos el query
+			$accion_nm = "UPDATE acuerdos SET";
 
-	  		if(!empty($contenidoAcuerdo)){
-	  			$accion_set .= " acuerdo='$contenidoAcuerdo'";
-	  		}
+			if(!empty($contenidoAcuerdo)){
+				$accion_set .= " acuerdo='$contenidoAcuerdo'";
+			}
 
-	  		if(!empty($responsableAcuerdo)){
-	  			if(!empty($accion_set)) $accion_set .= ",";
-	  			$accion_set .= " responsable='$responsableAcuerdo'";
-	  		}
-	  		
-	  		if(!empty($fechasLimiteAcuerdo)){
-	  			if(!empty($accion_set)) $accion_set .= ",";
-	  			$accion_set .= " fechaLimite='$fechasLimiteAcuerdo'";
-	  		}
-	  		
-	  		$accion_nm .= $accion_set;
-	  		$accion_nm .= " WHERE idAcuerdo='$idAcuerdo'";
+			if(!empty($responsableAcuerdo)){
+				if(!empty($accion_set)) $accion_set .= ",";
+				$accion_set .= " responsable='$responsableAcuerdo'";
+			}
+			
+			if(!empty($fechasLimiteAcuerdo)){
+				if(!empty($accion_set)) $accion_set .= ",";
+				$accion_set .= " fechaLimite='$fechasLimiteAcuerdo'";
+			}
+			
+			$accion_nm .= $accion_set;
+			$accion_nm .= " WHERE idAcuerdo='$idAcuerdo'";
 
 			$consulta_nm=mysqli_query($this->conexion,$accion_nm);
 		}
 
 
-	   /* Periodos
+		/* Periodos
 		––––––––––––––––––––––––––––––––––––––––––––––––– */
-	   public function consultaUltimoPeriodo(){
+		public function consultaUltimoPeriodo(){
 
-	   	$accion_nm = "SELECT idPeriodo FROM periodos ORDER BY idPeriodo ASC LIMIT 1";
-	   	$consulta_nm = mysqli_query($this->conexion,$accion_nm) or die(mysqli_error());
+			$accion_nm = "SELECT idPeriodo FROM periodos ORDER BY idPeriodo ASC LIMIT 1";
+			$consulta_nm = mysqli_query($this->conexion,$accion_nm) or die(mysqli_error());
 
-	   	while($fila = mysqli_fetch_assoc($consulta_nm)){
-
+			while($fila = mysqli_fetch_assoc($consulta_nm)){
 				$this->ultimoPeriodo = $fila['idPeriodo'];
 			}
-	   }
+		}
 
-	   public function consultaPeriodo($periodo){
+		public function consultaPeriodo($periodo){
+			$accion_nm = sprintf("SELECT periodo FROM periodos WHERE periodo LIKE '%s'", $periodo);
 
-	   	$accion_nm = sprintf("SELECT periodo FROM periodos WHERE periodo LIKE '%s'", $periodo);
-								
 			$consulta_nm = mysqli_query($this->conexion,$accion_nm) or die(mysqli_error());
 			return mysqli_num_rows($consulta_nm);
-	   }
+		}
 
-	   public function agregaPeriodo(){
-	   	
-	   	$fechaActual 	= date("m-d");
+		public function agregaPeriodo(){
+			$fechaActual 	= date("m-d");
 
 			$periodo1 		= "01-01";
 			$periodo2 		= "07-01";
@@ -244,44 +240,38 @@
 
 				$consulta_nm = mysqli_query($this->conexion,$accion_nm) or die(mysqli_error());
 			}
-	   }
+		}
 
-	   public function consultaPeriodos(){
-	   	
-	   	$accion_nm = "SELECT idPeriodo, periodo FROM periodos";
-	   	$consulta_nm = mysqli_query($this->conexion,$accion_nm) or die(mysqli_error());
+		public function consultaPeriodos(){
+			$accion_nm = "SELECT idPeriodo, periodo FROM periodos";
+			$consulta_nm = mysqli_query($this->conexion,$accion_nm) or die(mysqli_error());
 
-	   	while($fila = mysqli_fetch_assoc($consulta_nm)){
-
-	   		array_push($this->idPeriodos,$fila['idPeriodo']);
-	   		array_push($this->nombrePeriodos,$fila['periodo']);
+			while($fila = mysqli_fetch_assoc($consulta_nm)){
+				array_push($this->idPeriodos,$fila['idPeriodo']);
+				array_push($this->nombrePeriodos,$fila['periodo']);
 			}
+		}
 
-	   }
+		public function consultaFechasPeriodo($idPeriodo){
+			$accion_nm = "SELECT idMinuta, fecha FROM minutas WHERE idPeriodo = $idPeriodo";
+			$consulta_nm = mysqli_query($this->conexion,$accion_nm) or die(mysqli_error());
 
-	   public function consultaFechasPeriodo($idPeriodo){
+			while($fila = mysqli_fetch_assoc($consulta_nm)){
+				array_push($this->idMinutas,$fila['idMinuta']);
+				array_push($this->fechas,$fila['fecha']);
+			}
+		}
 
-	   	$accion_nm = "SELECT idMinuta, fecha FROM minutas WHERE idPeriodo = $idPeriodo";
-	   	$consulta_nm = mysqli_query($this->conexion,$accion_nm) or die(mysqli_error());
-
-	   	while($fila = mysqli_fetch_assoc($consulta_nm)){
-
-	   		array_push($this->idMinutas,$fila['idMinuta']);
-	   		array_push($this->fechas,$fila['fecha']);
-	   	}
-
-	   }
-
-	   /* Agregar usuarios
+		/* Agregar usuarios
 		––––––––––––––––––––––––––––––––––––––––––––––––– */
-	   public function agregarAlumnos(){
-	   	var_dump("agregarAlumnos");
-	   	// ** agregarAlumnos
-	   }
+		public function agregarAlumnos(){
+			var_dump("agregarAlumnos");
+			// ** agregarAlumnos
+		}
 
-	  	public function agregarTutores($inptNombre, $inptApellidoPaterno, $inptApellidoMaterno, $inptFechaNacimiento, $generoUsuario, $inptEmail, $inptTel, $inptContacto){
+		public function agregarTutores($inptNombre, $inptApellidoPaterno, $inptApellidoMaterno, $inptFechaNacimiento, $generoUsuario, $inptEmail, $inptTel, $inptContacto){
 
-    		$accion_nm = sprintf("	INSERT INTO personas (tipoUsuario,nombre,apellidoPaterno,apellidoMaterno,fechaNacimiento,genero,email,telefono,infoContacto,vista,idPeriodo)
+			$accion_nm = sprintf("	INSERT INTO personas (tipoUsuario,nombre,apellidoPaterno,apellidoMaterno,fechaNacimiento,genero,email,telefono,infoContacto,vista,idPeriodo)
 											VALUES ('2','%s','%s','%s','%s','%d','%s','%s','%s','1','%d')",
 											$inptNombre, 
 											$inptApellidoPaterno, 
@@ -294,12 +284,11 @@
 											$this->ultimoPeriodo);
 
 			$consulta_nm = mysqli_query($this->conexion,$accion_nm) or die(mysqli_error());
-	   }
+		}
 
-	   /* Consultas
+		/* Consultas
 		––––––––––––––––––––––––––––––––––––––––––––––––– */
-	   public function consultaLogin($inptUser, $inptPassword){
-
+		public function consultaLogin($inptUser, $inptPassword){
 			$nombreA = $inptUser[0];
 			$nombreB = substr($inptUser, 1);
 			$flagResLogin = 0;
@@ -323,9 +312,9 @@
 			}
 
 			return $flagResLogin;
-	   }
+		}
 
-	   public function consultaPerfil($id){
+		public function consultaPerfil($id){
 
 			$accion_nm = sprintf("	SELECT 	tipoUsuario,
 														nombre,
@@ -357,58 +346,58 @@
 				$this->infoContactoUsuario    	= $fila['infoContacto'];
 
 			}
-	   }
+		}
 
-	   /* Actualizaciones de usuario
+		/* Actualizaciones de usuario
 		––––––––––––––––––––––––––––––––––––––––––––––––– */
-	  	public function actualizaDatosUsr($inptNombre, $inptApellidoPaterno, $inptApellidoMaterno, $inptFechaNacimiento, $generoUsuario, $inptEmail, $inptTel, $idUsuario){
+		public function actualizaDatosUsr($inptNombre, $inptApellidoPaterno, $inptApellidoMaterno, $inptFechaNacimiento, $generoUsuario, $inptEmail, $inptTel, $idUsuario){
 
 	  		// Armamos el query
-	  		$accion_nm = "UPDATE personas SET";
+			$accion_nm = "UPDATE personas SET";
 
-	  		if(!empty($inptNombre)){
-	  			$accion_set .= " nombre='$inptNombre'";
-	  		}
+			if(!empty($inptNombre)){
+				$accion_set .= " nombre='$inptNombre'";
+			}
 
-	  		if(!empty($inptApellidoPaterno)){
-	  			if(!empty($accion_set)) $accion_set .= ",";
-	  			$accion_set .= " apellidoPaterno='$inptApellidoPaterno'";
-	  		}
-	  		
-	  		if(!empty($inptApellidoMaterno)){
-	  			if(!empty($accion_set)) $accion_set .= ",";
-	  			$accion_set .= " apellidoMaterno='$inptApellidoMaterno'";
-	  		}
-	  		
-	  		if(!empty($inptFechaNacimiento)){
-	  			if(!empty($accion_set)) $accion_set .= ",";
-	  			$accion_set .= " fechaNacimiento='$inptFechaNacimiento'";
-	  		}
+			if(!empty($inptApellidoPaterno)){
+				if(!empty($accion_set)) $accion_set .= ",";
+				$accion_set .= " apellidoPaterno='$inptApellidoPaterno'";
+			}
+			
+			if(!empty($inptApellidoMaterno)){
+				if(!empty($accion_set)) $accion_set .= ",";
+				$accion_set .= " apellidoMaterno='$inptApellidoMaterno'";
+			}
+			
+			if(!empty($inptFechaNacimiento)){
+				if(!empty($accion_set)) $accion_set .= ",";
+				$accion_set .= " fechaNacimiento='$inptFechaNacimiento'";
+			}
 
-	  		if(!empty($generoUsuario)){
-	  			if(!empty($accion_set)) $accion_set .= ",";
-	  			$accion_set .= " genero='$generoUsuario'";
-	  		}
+			if(!empty($generoUsuario)){
+				if(!empty($accion_set)) $accion_set .= ",";
+				$accion_set .= " genero='$generoUsuario'";
+			}
 
-	  		if(!empty($inptEmail)){
-	  			if(!empty($accion_set)) $accion_set .= ",";
-	  			$accion_set .= " email='$inptEmail'";
-	  		}
+			if(!empty($inptEmail)){
+				if(!empty($accion_set)) $accion_set .= ",";
+				$accion_set .= " email='$inptEmail'";
+			}
 
-	  		if(!empty($inptTel)){
-	  			if(!empty($accion_set)) $accion_set .= ",";
-	  			$accion_set .= " telefono='$inptTel'";
-	  		}
+			if(!empty($inptTel)){
+				if(!empty($accion_set)) $accion_set .= ",";
+				$accion_set .= " telefono='$inptTel'";
+			}
 
-	  		$accion_nm .= $accion_set;
-	  		$accion_nm .= " WHERE idUsuario='$idUsuario'";
+			$accion_nm .= $accion_set;
+			$accion_nm .= " WHERE idUsuario='$idUsuario'";
 
 			$consulta_nm=mysqli_query($this->conexion,$accion_nm);
-	   }
+		}
 
-	   public function cierraDB(){
-	   	mysqli_close($this->conexion);
-	   }
+		public function cierraDB(){
+			mysqli_close($this->conexion);
+		}
 	}
 ?>
 

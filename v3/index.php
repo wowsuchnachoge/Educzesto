@@ -2,11 +2,11 @@
 <html>
 <head>
 	<meta charset="utf-8"> 
-   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
-   <meta http-equiv="x-ua-compatible" content="ie-edge"> 
-   <meta name="google" content="notranslate"/> 
-   <meta name="description" content="">
-   <link rel="icon" type="image/png" href="img/logo.png"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+	<meta http-equiv="x-ua-compatible" content="ie-edge"> 
+	<meta name="google" content="notranslate"/> 
+	<meta name="description" content="">
+	<link rel="icon" type="image/png" href="img/logo.png"/>
 	<title>Plataforma Educzesto</title>
 
 	<!-- Frameworks
@@ -36,18 +36,18 @@
 		<div class="container">
 			<div class="row mx-2 mt-4 d-flex justify-content-center">
 					<form action="sql/controladores/cntLogin.php" method="POST" class="w-lg-50 p-3">
-						<?if((isset($_GET["login"]))&&($_GET["login"] == 1)){?>
+						<?php if((isset($_GET["login"]))&&($_GET["login"] == 1)){?>
 							<br>
 							<div class="alert alert-dismissible alert-success">
 							  <strong>Muy bien!</strong> El registro se agregó <a href="#" class="alert-link">correctamente</a>.
 							</div>
-						<?}?>
-						<?if((isset($_GET["login"]))&&($_GET["login"] == 2)){?>
+						<?php }?>
+						<?php if((isset($_GET["login"]))&&($_GET["login"] == 2)){?>
 							<br>
 							<div class="alert alert-dismissible alert-danger">
 							  <strong>Lo sentimos!</strong> El usuario o la contraseña <a href="#" class="alert-link">no son válidos</a>.
 							</div>
-						<?}?>
+						<?php }?>
 						<span class="badge bg-danger text-light mb-2" id="alrtLogin">Favor de completar los campos vacíos</span>
 						<div class="form-group">
 							<label for="inptUser" class="font-weight-bold">Usuario</label>

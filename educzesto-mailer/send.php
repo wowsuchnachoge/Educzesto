@@ -6,6 +6,7 @@ require './dbConf.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+// NOTE: Quitar estos comentarios para hacer debug
 // use PHPMailer\PHPMailer\SMTP;
 
 
@@ -16,6 +17,7 @@ $from = $_POST["from"];
 $lineTotal = $_POST["email-body-line-value"];
 
 try {
+    // NOTE: Quitar estos comentarios para hacer debug
     // $mail->SMTPDebug = SMTP::DEBUG_SERVER; 
     $mail->isSMTP();
     $mail->Host = 'p3plzcpnl466174.prod.phx3.secureserver.net';
@@ -39,7 +41,7 @@ try {
     
     for($i = 1; $i <= $lineTotal; $i++) {
         $varName = "email-body-line-" . $i;
-        if($_POST[$varName]) {
+        if(isset($_POST[$varName])) {
             $mail->Body .= $_POST[$varName] . '<br><br>';
         } else {
             // Image is here
@@ -96,6 +98,9 @@ try {
     }
 
     $mail->send();
+    // NOTE: echo statements for debugging
+    // echo $table;
+    // echo "\nmail sent!";
 } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }

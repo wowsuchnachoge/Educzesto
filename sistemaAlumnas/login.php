@@ -1,117 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-  <link href="css/login.css" rel="stylesheet" type="text/css">
-  
-  <title>Educzesto</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-
+	<?include("php/includes/head.html");?>
+    <title>Login</title>
+    <script type="text/javascript" src="js/login.js"></script>
+	<link href="../css/login.css" rel="stylesheet" />
 </head>
+
 <body>
-
-  <nav class="navbar navbar-warning bg-warning navbar-expand-md">
-    <a class="navbar-brand" href="index.php"></a>
-  </nav>
-
-  <div class="container">
-    <br>
-    <div class="row vc">
-      <div class="col-md-3"></div>
-      <div class="col-md-6 card">
-        <div class="text-center">          
-          <a href="index.php"> <img class="img-fluid" src="css/img/logo.png" alt="">
-          </a>
+    <div class="container h-100">
+        <div class="d-flex justify-content-center h-100">
+            <div class="user_card">
+                <div class="d-flex justify-content-center">				
+                    <div class="brand_logo_container">
+					<a href="../index.html"><img src="css/img/logo.png" class="brand_logo"></a>
+                    </div>            
+					<div class="d-flex justify-content-center form_container">
+						<!-- Formulario de acceso  -->
+						<form action="php/sql/controladores/cntLogin.php" method="POST">
+							<?php include("php/includes/loginErrors.php");?>
+							<span class="badge bg-danger text-light mb-2" id="alertCamposVacios">Favor de completar los campos vacíos</span>
+							<!-- Formulario de acceso -->
+							<br>
+							<h3 class="font-weight-bold" style="text-align: center;">Plataforma Educzesto</h3>
+							<br>
+							<div class="form-group">
+								<label for="inputUsuario" class="font-weight-bold">Usuario</label>
+								<input type="text" class="form-control" id="inputUsuario" name="inputUsuario" placeholder="Usuario" data-toggle="tooltip" title="Ejemplo: sboleaga">
+								<div class="invalid-feedback">Campo vacío.</div>
+								<small class="form-text text-muted">La primera letra de tu nombre, seguida de tu apellido.</small>
+							</div>
+							<div class="form-group mb-4">
+								<label for="inputPassword" class="font-weight-bold">Contraseña</label>
+								<input type="password" class="form-control" id="inputPassword" name="inputPassword" placeholder="Contraseña">
+								<div class="invalid-feedback">Campo vacío.</div>
+								<small class="form-text text-muted"><b>Ejemplo: </b>1997-05-07</small>
+							</div>
+							<button type="submit" class="btn btn-primary btn-block text-dark mb-4" id="buttonLogin">Entrar a Educzesto <i class="icon-login"></i></button>
+							<div class="d-flex justify-content-center links">No tienes una cuenta? <a id="buttonRegistro" href="registro.php" class="ml-2">Registrarse</a></div>
+							<small class="form-text text-muted text-center " id="linkManual" class="ml-2"><i class="icon-help"></i>Consulta el manual de uso <a href="http://educzesto.org/login/archivos/materialesConsulta/ManualSistemaAlumnas2021.pdf">aquí</a></small>
+						</form>
+					</div>
+				</div>
+            </div>
         </div>
-        <h1 class="text-center">Login</h1>
-    
-        <br>
-        
-        <form action="" method="POST" id="loginForm">
-          <div class="form-group">
-            <label for="emailInput">Email</label>
-            <input id="emailInput" class="form-control" type="text" name="email" placeholder="Email">
-          </div>
-          <div class="form-group">
-            <label for="passwordInput">Password</label>
-            <input id="passwordInput" class="form-control" type="password" name="password" placeholder="Password">
-          </div>
-
-          <input type="hidden" name="login">
-
-          <p class="text-right"><small class="text-muted text-right">New user? <a href="#" onClick="showRegistration()">Create an account</a></small></p>
-          <input class="btn btn-primary btn-block" type="submit" value="Login">
-        </form>
-
-        <form id="registrationForm" action="" class="needs-validation" method="POST" hidden novalidate>
-          <div class="form-group">
-            <label for="nombre">First name</label>
-            <input class="form-control" type="text" id="nombre" name="nombre" placeholder="Name" required>
-            <div class="invalid-feedback">Field required</div>
-          </div>
-          <div class="form-group">
-            <label for="ap_paterno">Last name</label>
-            <input class="form-control" type="text" name="ap_paterno" placeholder="Last name" required>
-            <div class="invalid-feedback">Field required</div>
-          </div>
-          <div class="form-group">
-            <label for="ap_materno">Middle name</label>
-            <input class="form-control" type="text" name="ap_materno" placeholder="Middle name" required>
-            <div class="invalid-feedback">Field required</div>
-          </div>
-          <div class="form-group">
-            <label for="">Address</label>
-            <input class="form-control" type="text" name="direccion" placeholder="Address" required>
-            <div class="invalid-feedback">Field required</div>
-          </div>
-          <div class="form-group">
-            <label for="">Cellphone</label>
-            <input class="form-control" type="text" id="cellphone" name="telefono" placeholder="Cellphone" required>
-            <small id="cellphoneIndicator" class="form-text"></small>
-            <div class="invalid-feedback">Field required</div>
-          </div>
-          <div class="form-group">
-            <label for="">Sex</label>
-            <!-- TODO: automatizar con php -->
-            <select id="" class="form-control" name="genero">
-              <option value="u">Unspecified</option>
-              <option value="f">Female</option>
-              <option value="m">Male</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="">Email</label>
-            <input class="form-control" type="email" id="reg_email" name="email" placeholder="Email" required>
-            <small id="emailIndicator" class="form-text"></small>
-            <div class="invalid-feedback">Field required</div>
-          </div>
-          <div class="form-group">
-            <label for="">Password</label>
-            <input class="form-control" id="reg_pass1" type="password" name="password1" placeholder="Password" required>
-            <div class="invalid-feedback">Field required</div>
-          </div>
-          <div class="form-group">
-            <label for="">Repeat password</label>
-            <input class="form-control" id="reg_pass2" type="password" name="password2" placeholder="Repeat password" required>
-            <small id="passwordIndicator" class="form-text"></small>
-            <div class="invalid-feedback">Field required</div>
-          </div>
-
-          <input type="hidden" name="register">
-
-          <p class="text-right"><small class="text-muted">Already have an account? <a href="#" onClick="showLogin()">Login</a></small></p>
-          <input class="btn btn-primary btn-block" id="register_btn" type="submit" value="Register">
-        </form>
-
-      </div>
-      <div class="col-md-3"></div>
     </div>
-  </div>
-  
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <script src="js/login.js"></script>
 </body>
+
 </html>

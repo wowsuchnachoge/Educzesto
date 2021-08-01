@@ -57,149 +57,270 @@
 	$material->cierraBaseDatos();
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-	<?php include("php/includes/head.html");?>
-	<title>Inicio</title>
-
-	<!-- Recursos locales
-	––––––––––––––––––––––––––––––––––––––––––––––––– -->
-	<script type="text/javascript" src="js/inicio.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Plataforma EduCzesto</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
 </head>
-<body>
-	<header>
-		<?php include("php/includes/dynamicHeader.php");?>
-	</header>
-	<main>
-		<div class="container">
-			<?php if($tipoUsuario == 1){?>
-			<section value="linksAlumno" class="mt-3">
-				<div class="row mb-3">
-					<div class="col-sm-12 col-lg-4 border-right">
-						<div class="card mb-3">
-							<div class="card-header font-weight-bold"><i class="icon-users text-dark mr-2"></i>Totores asignados</div>
-							<div class="card-body">
-								<details>
-									<summary>Lista de tutores</summary>
-									<br>
-									<?php foreach($consultaUsuariosTutorTodos as $valor){?>
-										<?php if(in_array($valor["idUsuario"], $arregloTutoresAsignados)){?>
-											<form action="perfil.php" method="POST">
-												<input type="text" name="tituloArchivo" value="<?php echo $tituloArchivo;?>" style="display: none;">
-												<input type="text" name="idUsuario" value="<?php echo $valor["idUsuario"];?>" style="display: none;">
-												<button type="submit" class="btn btn-dark btn-block mb-2"><?echo $valor["nombre"]." ".$valor["apellidoPaterno"]." ".$valor["apellidoMaterno"];?></button>
-											</form>
-										<?}?>
-									<?}?>
-								</details>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-12 col-lg-8">
-						<div class="card mb-3">
-							<div class="card-header"><i class="icon-folder text-dark mr-2"></i>Material para <strong><?php echo $_SESSION["datosUsuarioActivo"]["nombreCompleto"];?></strong></div>
-							<div class="card-body">
-								<?php foreach($listaMateriales as $valor){?>
-								<div class="row">
-									<div class="col"><p><i class="icon-newspaper text-dark"></i><?php echo $valor["nombre"];?></p></div>
-									<div class="col mt-2">
-										<?php if($valor["flagLink"] == 1){?>
-										<a href="<?php echo "https://".$valor["url"];?>" type="button" data-id_material="<?php echo $valor['idMaterial'];?>" class="btn <?php if($valor['estado'] == 0)echo 'btn-secondary'; else echo 'btn-success';?> float-right ml-1 buttonMaterialEstado" target="_blank"><i class="icon-link text-light"></i></a><?php }?>
-										<?php if($valor["flagMaterial"] == 1){?>
-										 <a href="<?php echo 'archivos/'.$valor['idMaterial'].'.pdf';?>" type="button" data-id_material="<?php echo $valor['idMaterial'];?>" class="btn <?php if($valor['estado'] == 0)echo 'btn-secondary'; else echo 'btn-success';?> float-right buttonMaterialEstado"><i class="icon-newspaper text-light"></i></a><?php }?>
-									</div>
-								</div>
-								<hr>
-								<?php }?>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
 
-			<?php }else{ ?>
-			<section value="linksTutor" class="mt-3">
-				<div class="row mb-3">
-					<div class="col-sm-12 col-lg-4 border-right">
-						<div class="card mb-3">
-							<div class="card-header font-weight-bold"><i class="icon-users text-dark mr-2"></i>Alumnas asignadas</div>
-							<div class="card-body">
-							<?php foreach($arregloUsuariosAlumnoTodos as $valor){?>
-								<?php if(in_array($valor["idUsuario"], $arregloAlumnasAsignadas)){?>
-									<form action="perfil.php" method="POST">
-										<input type="text" name="tituloArchivo" value="<?php echo $tituloArchivo;?>" style="display: none;">
-										<input type="text" name="idUsuario" value="<?php echo $valor["idUsuario"];?>" style="display: none;">
-										<button type="submit" class="btn btn-dark btn-block mb-2"><?echo $valor["nombre"]." ".$valor["apellidoPaterno"]." ".$valor["apellidoMaterno"];?></button>
-									</form>
-								<?}?>
-							<?}?>
-							</div>
-						</div>
+<body>
+    <!-- Responsive navbar-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+        <a class="navbar-brand" href="inicio.php"><img src="css/img/logo.png" height="80"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="inicio.php">
+                        <div class="text-dark"><i class="bi bi-house-fill"></i>
+                        </div>
+                    </a>
+                </li>
+				<li class="nav-item dropdown">
+					<div class="dropdown nav-link">
+					<span>&nbsp;&nbsp;&nbsp;Seguimiento Tutores&nbsp;&nbsp;&nbsp;</span>
+					<div class="dropdown-content">
+						<p><a href="minutas.php">Minutas</a></p>
+						<p><a href="materiales.php">Bitacoras</a></p>
+						<p><a href="plataformas.php">Accesos a Plataformas</a></p>
 					</div>
-					<div class="col-sm-12 col-lg-8">
-						<div class="card mb-3">
-							<div class="card-header"><i class="icon-folder text-dark mr-2"></i>Material para <strong><?php echo $_SESSION["datosUsuarioActivo"]["nombreCompleto"];?></strong></div>
-							<div class="card-body">
-							<details>
-							<summary>Lista de archivos</summary>
-							<br>
-								<?php foreach($listaMateriales as $valor){?>
-								<div class="row">
-									<div class="col"><p><i class="icon-newspaper text-dark"></i><?php echo $valor["nombre"];?></p></div>
-									<div class="col mt-2">
-										<?php if($valor["flagLink"] == 1){?>
-										<a href="<?php echo "https://".$valor["url"];?>" type="button" class="btn btn-secondary float-right ml-1" target="_blank"><i class="icon-link text-light"></i></a><?php }?>
-										<?php if($valor["flagMaterial"] == 1){?>
-										 <a href="<?php echo 'archivos/'.$valor['idMaterial'].'.pdf';?>" type="button" class="btn btn-secondary float-right" target="_blank"><i class="icon-newspaper text-light"></i></a><?php }?>
-									</div>
-								</div>
-								<hr>
-								<?php }?>
-							</details>
-							</div>
-						</div>
 					</div>
-				</div>
-			</section>
-			<section value="accesosTutor" class="d-none d-lg-inline d-xl-none d-none d-xl-inline">
-				<div class="card mb-3">
-					<div class="card-header font-weight-bold"><i class="icon-globe text-dark mr-2"></i>Plataformas</div>
-					<table class="table table-hover">
-						<thead>
-							<tr>
-								<th scope="col">Plataforma</th>
-								<th scope="col" style="width: 40%">Información</th>
-								<th scope="col">Usuario</th>
-								<th scope="col">Contraseña</th>
-								<th scope="col">Acceso</th>
-							</tr>
-						</thead>
-						<tbody>
-						<?php foreach($arregloPlataformas as $valor){?>
-							<tr>
-								<td><p><em><?echo ucfirst($valor["plataforma"]);?></em></p></td>
-								<td>
-									<details>
-										<summary>Datos de la plataforma</summary>
-										<hr>
-										<p class="text-justify"><?echo $valor["descripcion"];?></p>
-										<span class="badge rounded-pill bg-warning text-dark" style="font-size: 14px;">Puedes encontrar las guías disponibles en <br><br><a href="materialesConsulta.php">Biblioteca/Manejo de plataformas</a></span>
-									</details>
-								</td>
-								<td><p><?echo $valor["usuario"];?></p></td>
-								<td><span class="badge rounded-pill bg-dark text-light"><?echo $valor["passwordPlataforma"];?></span></td>
-								<td>
-									<a href="https:<?echo $valor["link"];?>" target="_blank" class="btn btn-dark btn-sm">Acceder</a>
-								</td>
-							</tr>
-						<?}?> 
-						</tbody>
-					</table>	
-				</div>
-			</section>
-			<?php }?>
-		</div>
-	</main>
-	<?php if($tipoUsuario != 1){?><?php include("php/includes/modals.php");?><?php }?>
+                </li>
+				<li class="nav-item dropdown">
+					<div class="dropdown nav-link">
+					<span>&nbsp;&nbsp;&nbsp;Seguimiento Alumnado&nbsp;&nbsp;&nbsp;</span>
+					<div class="dropdown-content">
+						<p><a href="materiales.php">Material de apoyo</a></p>
+                        <p><a href="">Ligas de consulta</a></p>
+					</div>
+					</div>
+                </li>
+				<!-- <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Minutas</a>
+          <a class="dropdown-item" href="#">Bitácoras</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Administrar tutores</a>
+        </div>
+      </li> -->
+            </ul>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="#!"><div class="text-dark"><i class="bi bi-person-fill"></i>
+                </div></a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"> </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- <nav class="navbar navbar-expand-lg navbar-warning bg-warning">
+        <div class="container px-5">
+            <a class="navbar-brand" href="#!"><img src="LogoEduczesto.png" height="80"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!"><div class="text-white"><i class="bi bi-house-fill"></i>
+                    </div></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#!">Seguimiento Tutores</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Dropdown
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="#">Action</a>
+                          <a class="dropdown-item" href="#">Another action</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                      </li>
+                    <li class="nav-item"><a class="nav-link" href="#!">Seguimiento Alumnos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"> </a></li>
+                    <li class="nav-item"><a class="nav-link" href="#!"><div class="text-white"><i class="bi bi-person-fill"></i>
+                    </div></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav> -->
+    <!-- Header-->
+    <header class="bg-warning py-3">
+        <div class="container px-3">
+            <div class="row gx-5 justify-content-center">
+                <div class="col-lg-6">
+                    <div class="text-center my-5">
+                        <h1 class="display-5 fw-bolder text-white mb-2">Bienvenido a la Plataforma de EduCzesto</h1>
+                        <p class="lead text-white-50 sm-4">Aquí podrás manejar todo lo relacionado a <br>tu servicio social
+                            con EduCzesto.</p>
+                        <!--  	                           <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+                                <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Seguimiento Tutores</a>
+                                <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#!">Seguimiento alumnos</a>
+                            </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Features section-->
+    <!--   <section class="py-5 border-bottom" id="features">
+        <div class="container px-5 my-5">
+            <div class="row gx-5">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i
+                            class="bi bi-collection"></i></div>
+                    <h2 class="h4 fw-bolder">Featured title</h2>
+                    <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another
+                        sentence and probably just keep going until we run out of words.</p>
+                    <a class="text-decoration-none" href="#!">
+                        Call to action
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-building"></i>
+                    </div>
+                    <h2 class="h4 fw-bolder">Featured title</h2>
+                    <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another
+                        sentence and probably just keep going until we run out of words.</p>
+                    <a class="text-decoration-none" href="#!">
+                        Call to action
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <!-- Pricing section-->
+    <section class="py-0">
+        <div class="container px-4 my-4">
+            <!-- <div class="text-center mb-5">
+                <h2 class="fw-bolder">Pay as you grow</h2>
+                <p class="lead mb-0">With our no hassle pricing plans</p>
+            </div> -->
+            <div class="row gx-5 justify-content-center">
+                <!-- Pricing card free-->
+                <div class="col-lg-6 col-xl-4">
+                    <div class="card mb-5 mb-xl-0">
+                        <div class="card-body p-5">
+                            <div class="small text-uppercase fw-bold text-muted">Seguimiento de</div>
+                            <div class="mb-3">
+                                <span class="display-4 fw-bold">Tutores</span>
+                            </div>
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-2">
+                                    <i class="bi bi-check text-primary"></i>
+                                    Minutas
+                                </li>
+                                <li class="mb-2">
+                                    <i class="bi bi-check text-primary"></i>
+                                    Bitacoras
+                                </li>
+                                <li class="mb-2">
+                                    <i class="bi bi-check text-primary"></i>
+                                    Cuentas de EduCzesto
+                                </li>
+                            </ul>
+                            <div class="d-grid"><a class="btn btn-outline-primary" href="#!">Ir a tutores</a></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pricing card pro-->
+                <div class="col-lg-6 col-xl-4">
+                    <div class="card mb-5 mb-xl-0">
+                        <div class="card-body p-5">
+                            <div class="small text-uppercase fw-bold text-muted">Seguimiento de</div>
+                            <div class="mb-3">
+                                <span class="display-4 fw-bold">Alumnado</span>
+                            </div>
+                            <ul class="list-unstyled mb-4">
+                                <li class="mb-2">
+                                    <i class="bi bi-check text-primary"></i>
+                                    Perfiles y personalidad
+                                </li>
+                                <li class="mb-2">
+                                    <i class="bi bi-check text-primary"></i>
+                                    Ligas de consulta
+                                </li>
+                                <li class="mb-2">
+                                    <i class="bi bi-check text-primary"></i>
+                                    Material de apoyo
+                                </li>
+                            </ul>
+                            <div class="d-grid"><a class="btn btn-outline-primary" href="#!">Ir a alumnos</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonials section-->
+    <section class="bg-light py-5 border-bottom">
+        <div class="container px-5 my-5">
+            <div class="row gx-5">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <div class="feature bg-warning bg-gradient text-white rounded-3 mb-3"><i
+                            class="bi bi-collection"></i></div>
+                    <h2 class="h4 fw-bolder">Minuta más reciente</h2>
+                    <p>Revisa los acuerdos de las juntas semanales, para trabajar con mayor productividad.</p>
+                    <a class="text-decoration-none" href="minutas.php">
+                        Ir
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <div class="feature bg-warning bg-gradient text-white rounded-3 mb-3"><i
+                            class="bi bi-lightbulb"></i>
+                    </div>
+                    <h2 class="h4 fw-bolder">Recordatorios</h2>
+                    <p>¿Has estado actualizando tu bitácora? No se te olvide que esto debe estar completo para finalizar tu servicio social!</p>
+                    <a class="text-decoration-none" href="bitacora.php">
+                        Ir
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <div class="feature bg-danger bg-gradient text-white rounded-3 mb-3"><i class="bi bi-bell"></i>
+                    </div>
+                    <h2 class="h4 fw-bolder">Avisos</h2>
+                    <p>*Por el momento las actividades presenciales se encuentran suspendidas.</p>
+                    <!-- <a class="text-decoration-none" href="#!">
+                        Call to action
+                        <i class="bi bi-arrow-right"></i>
+                    </a> -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer-->
+    <footer class="py-5 bg-warning">
+        <div class="container px-5">
+            <p class="m-0 text-center text-white">Plataforma de EduCzesto</p>
+        </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <!-- * *                               SB Forms JS                               * *-->
+    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 </body>
+
 </html>

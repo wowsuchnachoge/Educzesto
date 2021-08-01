@@ -1,0 +1,22 @@
+.card {
+    padding-top: 3em;
+    padding-bottom: 3em;
+    margin-bottom: 1em;
+}
+
+html, body {
+    background-image: linear-gradient(to bottom, #EBB244, #333a41);
+}
+
+.vc {
+    min-height: 90%;
+    min-height: 90vh;
+    
+    display: flex;
+    align-items: center;
+}
+
+img.img-fluid {
+    border:white;
+    max-width: 40%;
+}

@@ -12,7 +12,7 @@
 <body>
 
   <nav class="navbar navbar-warning bg-warning navbar-expand-md">
-    <a class="navbar-brand" href="index.php">Educzesto</a>
+    <a class="navbar-brand" href="index.php"></a>
   </nav>
 
   <div class="container">

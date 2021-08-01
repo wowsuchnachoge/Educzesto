@@ -1,0 +1,9 @@
+[13-Jul-2021 03:02:49 UTC] PHP Notice:  Undefined index: datosUsuarioActivo in /home/vlm0dijktjmb/public_html/login/php/sql/controladores/cntEditaDatosUsuarioTutor.php on line 20
+[13-Jul-2021 03:02:49 UTC] PHP Notice:  Undefined index: datosUsuarioActivo in /home/vlm0dijktjmb/public_html/login/php/sql/controladores/cntEditaDatosUsuarioTutor.php on line 21
+[13-Jul-2021 03:02:49 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/vlm0dijktjmb/public_html/login/php/sql/usuario.php on line 121
+[13-Jul-2021 03:02:49 UTC] PHP Notice:  Undefined variable: queryCuerpo in /home/vlm0dijktjmb/public_html/login/php/sql/usuario.php on line 366
+[13-Jul-2021 03:03:02 UTC] PHP Notice:  Undefined variable: queryCuerpo in /home/vlm0dijktjmb/public_html/login/php/sql/usuario.php on line 351
+[13-Jul-2021 19:04:32 UTC] PHP Notice:  Undefined index: fechaMinuta in /home/vlm0dijktjmb/public_html/login/php/sql/controladores/cntCargaMinuta.php on line 3
+[14-Jul-2021 00:46:21 UTC] PHP Notice:  Undefined index: inputUsuario in /home/vlm0dijktjmb/public_html/login/php/sql/controladores/cntLogin.php on line 10
+[14-Jul-2021 00:46:21 UTC] PHP Notice:  Undefined index: inputPassword in /home/vlm0dijktjmb/public_html/login/php/sql/controladores/cntLogin.php on line 11
+[14-Jul-2021 00:46:21 UTC] PHP Notice:  Uninitialized string offset: 0 in /home/vlm0dijktjmb/public_html/login/php/sql/usuario.php on line 69

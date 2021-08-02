@@ -64,19 +64,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Plataforma EduCzesto</title>
+    <title>EduCzesto</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <!-- Bootstrap icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
+    <script type="text/javascript" src="js/inicio.js"></script>
 </head>
 
 <body>
     <!-- Responsive navbar-->
     <nav class="navbar navbar-expand-lg navbar-light bg-warning">
-        <a class="navbar-brand" href="inicio.php"><img src="css/img/logo.png" height="80"></a>
+        <a class="navbar-brand" href="inicio.php"><img src="css/img/logo.png" height="50"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -84,17 +85,18 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link active" aria-current="page" href="inicio.php">
-                        <div class="text-dark"><i class="bi bi-house-fill"></i>
+                        <div class="text-dark"><i class="icon-home"></i>
                         </div>
                     </a>
                 </li>
 				<li class="nav-item dropdown">
 					<div class="dropdown nav-link">
-					<span>&nbsp;&nbsp;&nbsp;Seguimiento Tutores&nbsp;&nbsp;&nbsp;</span>
+					<span>&nbsp;Seguimiento Tutores&nbsp;&nbsp;&nbsp;</span>
 					<div class="dropdown-content">
-						<p><a href="minutas.php">Minutas</a></p>
-						<p><a href="materiales.php">Bitacoras</a></p>
-						<p><a href="plataformas.php">Accesos a Plataformas</a></p>
+						<p><a href="minutas.php" style="color: black; text-decoration: none;">Minutas</a></p>
+						<p><a href="bitacoras.php" style="color: black; text-decoration: none;">Bitacoras</a></p>
+						<p><a href="plataformas.php" style="color: black; text-decoration: none;">Cuentas de EduCzesto</a></p>   
+                        <p><a href="materialesConsulta.php" style="color: black; text-decoration: none;">Material de consulta</a></p>                 
 					</div>
 					</div>
                 </li>
@@ -102,118 +104,46 @@
 					<div class="dropdown nav-link">
 					<span>&nbsp;&nbsp;&nbsp;Seguimiento Alumnado&nbsp;&nbsp;&nbsp;</span>
 					<div class="dropdown-content">
-						<p><a href="materiales.php">Material de apoyo</a></p>
-                        <p><a href="">Ligas de consulta</a></p>
+                        <p><a href="alumnos.php" style="color: black; text-decoration: none;">Perfiles de alumnos asignados</a></p>
+                        <p><a href="materiales.php" style="color: black; text-decoration: none;">Enviar material para alumnos</a></p>
+                        <p><a href="" style="color: black; text-decoration: none;">Ligas de consulta para alumnos</a></p>
 					</div>
 					</div>
                 </li>
-				<!-- <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Minutas</a>
-          <a class="dropdown-item" href="#">Bitácoras</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Administrar tutores</a>
-        </div>
-      </li> -->
+                
             </ul>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link" href="#!"><div class="text-dark"><i class="bi bi-person-fill"></i>
-                </div></a></li>
+                <li class="nav-item" data-toggle="modal" data-target="#modalEditarDatosUsuarioActivo" >
+                    <a class="nav-link" href="#!"><div class="text-dark" >Mi perfil <i class="bi bi-person-fill"></i></div></a>
+                    <!-- <a href="#" class="font-weight-bold" data-toggle="modal" data-target="#modalEditarInfo" style="text-decoration:none;"> BLA </a> -->
+                </li>
+                <li class="nav-item"><a class="nav-link" href="#!"><div class="text-dark"> </div></a></li>
+                <li class="nav-item">
+                    <a href="php/sql/controladores/cntLogOut.php" class="btn btn-danger float-right mx-1" style="font-size: small;">Salir <i class="bi bi-box-arrow-right"></i></a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#"> </a>
                 </li>
             </ul>
         </div>
     </nav>
-    <!-- <nav class="navbar navbar-expand-lg navbar-warning bg-warning">
-        <div class="container px-5">
-            <a class="navbar-brand" href="#!"><img src="LogoEduczesto.png" height="80"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!"><div class="text-white"><i class="bi bi-house-fill"></i>
-                    </div></a></li>
-                    <li class="nav-item"><a class="nav-link" href="#!">Seguimiento Tutores</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Dropdown
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="#">Action</a>
-                          <a class="dropdown-item" href="#">Another action</a>
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                      </li>
-                    <li class="nav-item"><a class="nav-link" href="#!">Seguimiento Alumnos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#"> </a></li>
-                    <li class="nav-item"><a class="nav-link" href="#!"><div class="text-white"><i class="bi bi-person-fill"></i>
-                    </div></a></li>
-                </ul>
-            </div>
-        </div>
-    </nav> -->
-    <!-- Header-->
-    <header class="bg-warning py-3">
+    <header class="bg-warning py-3" style="background-image: url(css/img/sky_student.jpg); background-repeat: no-repeat; background-size: cover;">
         <div class="container px-3">
             <div class="row gx-5 justify-content-center">
                 <div class="col-lg-6">
                     <div class="text-center my-5">
-                        <h1 class="display-5 fw-bolder text-white mb-2">Bienvenido a la Plataforma de EduCzesto</h1>
+                        <h1 class="display-5 fw-bolder text-white mb-2">Bienvenido a EduCzesto</h1>
                         <p class="lead text-white-50 sm-4">Aquí podrás manejar todo lo relacionado a <br>tu servicio social
-                            con EduCzesto.</p>
-                        <!--  	                           <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-                                <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Seguimiento Tutores</a>
-                                <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#!">Seguimiento alumnos</a>
-                            </div> -->
+                            con EduCzesto.</p>                       
                     </div>
                 </div>
             </div>
         </div>
     </header>
-    <!-- Features section-->
-    <!--   <section class="py-5 border-bottom" id="features">
-        <div class="container px-5 my-5">
-            <div class="row gx-5">
-                <div class="col-lg-4 mb-5 mb-lg-0">
-                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i
-                            class="bi bi-collection"></i></div>
-                    <h2 class="h4 fw-bolder">Featured title</h2>
-                    <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another
-                        sentence and probably just keep going until we run out of words.</p>
-                    <a class="text-decoration-none" href="#!">
-                        Call to action
-                        <i class="bi bi-arrow-right"></i>
-                    </a>
-                </div>
-                <div class="col-lg-4 mb-5 mb-lg-0">
-                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-building"></i>
-                    </div>
-                    <h2 class="h4 fw-bolder">Featured title</h2>
-                    <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another
-                        sentence and probably just keep going until we run out of words.</p>
-                    <a class="text-decoration-none" href="#!">
-                        Call to action
-                        <i class="bi bi-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section> -->
-    <!-- Pricing section-->
     <section class="py-0">
         <div class="container px-4 my-4">
-            <!-- <div class="text-center mb-5">
-                <h2 class="fw-bolder">Pay as you grow</h2>
-                <p class="lead mb-0">With our no hassle pricing plans</p>
-            </div> -->
             <div class="row gx-5 justify-content-center">
-                <!-- Pricing card free-->
+                <!-- Tutores -->
                 <div class="col-lg-6 col-xl-4">
                     <div class="card mb-5 mb-xl-0">
                         <div class="card-body p-5">
@@ -239,7 +169,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Pricing card pro-->
+                <!-- Alumnado -->
                 <div class="col-lg-6 col-xl-4">
                     <div class="card mb-5 mb-xl-0">
                         <div class="card-body p-5">
@@ -250,7 +180,7 @@
                             <ul class="list-unstyled mb-4">
                                 <li class="mb-2">
                                     <i class="bi bi-check text-primary"></i>
-                                    Perfiles y personalidad
+                                    Perfiles de alumnos asignados
                                 </li>
                                 <li class="mb-2">
                                     <i class="bi bi-check text-primary"></i>
@@ -258,7 +188,7 @@
                                 </li>
                                 <li class="mb-2">
                                     <i class="bi bi-check text-primary"></i>
-                                    Material de apoyo
+                                    Material para alumnos
                                 </li>
                             </ul>
                             <div class="d-grid"><a class="btn btn-outline-primary" href="#!">Ir a alumnos</a></div>
@@ -268,7 +198,7 @@
             </div>
         </div>
     </section>
-    <!-- Testimonials section-->
+    <!-- Seccion secundaria -->
     <section class="bg-light py-5 border-bottom">
         <div class="container px-5 my-5">
             <div class="row gx-5">
@@ -298,29 +228,95 @@
                     </div>
                     <h2 class="h4 fw-bolder">Avisos</h2>
                     <p>*Por el momento las actividades presenciales se encuentran suspendidas.</p>
-                    <!-- <a class="text-decoration-none" href="#!">
-                        Call to action
-                        <i class="bi bi-arrow-right"></i>
-                    </a> -->
                 </div>
             </div>
         </div>
     </section>
     <!-- Footer-->
-    <footer class="py-5 bg-warning">
-        <div class="container px-5">
-            <p class="m-0 text-center text-white">Plataforma de EduCzesto</p>
+    <footer class="py-3 bg-warning">
+        <div class="container px-3">
+            <p class="m-0 text-center text-white">EduCzesto</p>
         </div>
     </footer>
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
-    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-    <!-- * *                               SB Forms JS                               * *-->
-    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-</body>
 
+    <!-- Modal: perfil
+	––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<div id="modalEditarInfo" class="modal fade" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<p class="modal-title"><i class="icon-pencil text-dark mr-1"></i>Editar a <strong><?php echo $baseDatos->nombreCompletoUsuario?></strong></p>
+					<button type="button" class="close btn_circle btn_sm" data-dismiss="modal">
+						<span>&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form action="sql/controladores/cntActUsr.php" method="POST">
+						<div class="form-group">
+							<label for="inptNombre" class="font-weight-bold">Nombre</label>
+							<input type="text" class="form-control campoEditarInfo" id="inptNombre" name="inptNombre" maxlength="40" placeholder="<?php echo $baseDatos->nombreUsuario?>">
+							<div class="invalid-feedback">Campo vacío.</div>
+						</div>
+						<details class="mb-4">
+							<summary>Apellidos</summary>
+							<hr>
+							<div class="form-group">
+								<label for="inptApellidoPaterno" class="font-weight-bold">Apellido paterno</label>
+								<input type="text" class="form-control campoEditarInfo" id="inptApellidoPaterno" name="inptApellidoPaterno" maxlength="40" placeholder="<?php echo $baseDatos->apellidoPaternoUsuario?>">
+								<div class="invalid-feedback">Campo vacío.</div>
+							</div>
+							<div class="form-group">
+								<label for="inptApellidoMaterno" class="font-weight-bold">Apellido materno</label>
+								<input type="text" class="form-control campoEditarInfo" id="inptApellidoMaterno" name="inptApellidoMaterno" maxlength="40" placeholder="<?php echo $baseDatos->apellidoMaternoUsuario?>">
+								<div class="invalid-feedback">Campo vacío.</div>
+							</div>
+							<hr>
+						</details>
+						<div class="form-group">
+							<label for="inptFechaNacimiento" class="font-weight-bold">Fecha de nacimiento</label>
+							<input type="date" class="form-control campoEditarInfo" id="inptFechaNacimiento" name="inptFechaNacimiento" value="<?php echo $baseDatos->fechaNacimientoUsuario?>">
+							<div class="invalid-feedback">Campo sin modificar.</div>
+						</div>
+
+						<div data-genero="<?php echo $baseDatos->generoUsuario?>" style="display: none;" id="generoUsuarioDB"></div>
+
+						<div class="form-group">
+							<label for="generoUsuario" class="font-weight-bold">Género</label>
+							<select class="form-control campoEditarInfo" id="generoUsuario" name="generoUsuario">
+								<option value="1">Femenino</option>
+								<option value="2">Masculino</option>
+							</select>
+						</div>
+
+						<details>
+							<summary>Contacto</summary>
+							<hr>
+							<div class="form-group">
+								<label for="inptEmail" class="font-weight-bold">Email</label>
+								<input type="mail" class="form-control campoEditarInfo" id="inptEmail" name="inptEmail" maxlength="40" placeholder="<?php echo $baseDatos->emailUsuario?>">
+							</div>
+
+							<div class="form-group mt-4">
+								<label for="inptTel" class="font-weight-bold">Celular</label>
+								<input type="tel" class="form-control campoEditarInfo" id="inptTel" name="inptTel" maxlength="20" placeholder="<?php echo $baseDatos->telefonoUsuario?>">
+								<div class="invalid-feedback">Campo vacío.</div>
+							</div>
+							<hr>
+						</details>
+					<span class="badge bg-primary float-right">Puedes cambiar tus datos y al finalizar guardarlos.</span>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-dark" data-dismiss="modal">Cerrar</button>
+					<button type="submit" class="btn btn-success" id="btnModalPerfilGuardar" disabled>Guardar</button>
+				</div>
+				<input type="text" name="id" value="<?php echo $idUsuario?>" style="display: none;">
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
 </html>

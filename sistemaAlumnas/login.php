@@ -14,7 +14,7 @@
             <div class="user_card">
                 <div class="d-flex justify-content-center">				
                     <div class="brand_logo_container">
-					<a href="../index.html"><img src="css/img/logo.png" class="brand_logo"></a>
+					<a href="http://educzesto.org"><img src="css/img/logo.png" class="brand_logo"></a>
                     </div>            
 					<div class="d-flex justify-content-center form_container">
 						<!-- Formulario de acceso  -->
@@ -23,7 +23,7 @@
 							<span class="badge bg-danger text-light mb-2" id="alertCamposVacios">Favor de completar los campos vacíos</span>
 							<!-- Formulario de acceso -->
 							<br>
-							<h3 class="font-weight-bold" style="text-align: center;">Plataforma Educzesto</h3>
+							<h3 class="font-weight-bold" style="text-align: center;">Plataforma EduCzesto</h3>
 							<br>
 							<div class="form-group">
 								<label for="inputUsuario" class="font-weight-bold">Usuario</label>
@@ -37,7 +37,7 @@
 								<div class="invalid-feedback">Campo vacío.</div>
 								<small class="form-text text-muted"><b>Ejemplo: </b>1997-05-07</small>
 							</div>
-							<button type="submit" class="btn btn-primary btn-block text-dark mb-4" id="buttonLogin">Entrar a Educzesto <i class="icon-login"></i></button>
+							<button type="submit" class="btn btn-primary btn-block text-dark mb-4" id="buttonLogin">Entrar a EduCzesto <i class="icon-login"></i></button>
 							<div class="d-flex justify-content-center links">No tienes una cuenta? <a id="buttonRegistro" href="registro.php" class="ml-2">Registrarse</a></div>
 							<small class="form-text text-muted text-center " id="linkManual" class="ml-2"><i class="icon-help"></i>Consulta el manual de uso <a href="http://educzesto.org/login/archivos/materialesConsulta/ManualSistemaAlumnas2021.pdf">aquí</a></small>
 						</form>

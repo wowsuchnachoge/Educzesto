@@ -114,8 +114,9 @@
             </ul>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item" data-toggle="modal" data-target="#modalEditarDatosUsuarioActivo" >
+                <div data-toggle="modal" data-target=".modalEditaDatosUsuarioTutor">
                     <a class="nav-link" href="#!"><div class="text-dark" >Mi perfil <i class="bi bi-person-fill"></i></div></a>
-                    <!-- <a href="#" class="font-weight-bold" data-toggle="modal" data-target="#modalEditarInfo" style="text-decoration:none;"> BLA </a> -->
+		        </div> 
                 </li>
                 <li class="nav-item"><a class="nav-link" href="#!"><div class="text-dark"> </div></a></li>
                 <li class="nav-item">
@@ -318,5 +319,6 @@
 			</div>
 		</div>
 	</div>
+	<?php if($tipoUsuario != 1){?><?php include("php/includes/modals.php");?><?php }?>
 </body>
 </html>

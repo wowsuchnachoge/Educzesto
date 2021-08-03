@@ -12,7 +12,7 @@ class InteractDB{
 	
 	/* -- MAMP
 	––––––––––––––––––––––––––––––––––––––––––––––––– */
-	private $connection_db = array(	"hostname_db"=>"173.201.185.124",
+	private $connection_db = array(	"hostname_db"=>"localhost",
 								 				"database_db"=>"sistema_educzesto",
 								 				"username_db"=>"educzesto",
 								 				"password_db"=>"ServicioSocial2021");

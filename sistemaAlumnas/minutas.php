@@ -13,6 +13,7 @@
 <head>
 	<?include("php/includes/head.html");?>
 	<title>Minutas</title>
+	<link href="../css/minutas.css" rel="stylesheet" />
 </head>
 <body>
 	<header>
@@ -20,25 +21,31 @@
 	</header>
 	<main>
 		<br>
-		<h2 style="font-weight:bold;">&nbsp;&nbsp;&nbsp;Minutas</h2>
 		<div class="jumbotron" style="margin-left: 20px; margin-right: 20px;">
-        	<h1>Nueva minuta</h1>
+		<h1><i class="icon-plus text-dark"></i> Nueva minuta</h1>
         	<p class="lead">Crear una nueva minuta que podrán consultar todos los tutores.</p>
-        	<a class="btn btn-lg btn-primary" role="button">Nueva minuta <i class="icon-plus text-dark"></i></a>
+			<button class="btn btn-lg btn-warning" type="button"><i class="icon-plus text-dark"></i>Nueva minuta</button>
+        	<!-- <a class="btn btn-lg btn-warning" role="button">Nueva minuta <i class="icon-plus text-dark"></i></a> -->
       	</div>
-		  <div class="jumbotron" style="margin-left: 20px; margin-right: 20px;">
-        	<h1>Ver minutas</h1>
+		<div class="jumbotron" style="margin-left: 20px; margin-right: 20px;">
+        	<h1><i class="icon-doc-text text-dark mr-1"></i> Ver minuta</h1>
         	<p class="lead">Consulta las minutas de juntas anteriores.</p>
-        	<a class="btn btn-lg btn-primary" role="button">Ver minutas »</a>
+        	<a class="btn btn-lg btn-warning" role="button">Ver minutas »</a>
+      	</div>
+		<div class="jumbotron" style="margin-left: 20px; margin-right: 20px;">
+        	<h1><i class="icon-calendar text-dark mr-1"></i> Ver agenda</h1>
+        	<p class="lead">Consulta cuando te toca hacer la minutas.</p>
+			<button class="btn btn-lg btn-warning" type="button"><i class="icon-calendar text-dark mr-1"></i>Calendario</button>
+        	<!-- <a class="btn btn-lg btn-warning" role="button">Ver agenda »</a> -->
       	</div>
 		<div class="container-fluid mt-3 px-4">
 			<div class="row d-flex justify-content-center">
-				<div class="col-sm-6 col-lg-2 d-none d-sm-block d-sm-none d-md-block d-md-none d-lg-block d-lg-inline d-xl-none d-xl-inline mb-3 p-2 rounded bg-light">
-				  <button class="btn btn-success btn-block" type="button"><i class="icon-plus text-light"></i>Nueva minuta</button>
+				<div class="col-sm-6 col-lg-2 mb-3 p-2 rounded bg-light">
+				  <button class="btn btn-dark btn-block" type="button"><i class="icon-plus text-dark"></i>Nueva minuta</button>
 				  <hr>
-				  <button style="display:none;" class="btn btn-secondary btn-block disabled" type="button"><i class="icon-calendar text-light mr-1"></i>Calendario</button>
-				  <button style="display:none;" class="btn btn-secondary btn-block disabled" type="button"><i class="icon-doc-text text-light mr-1"></i>Vista</button>
-				  <!-- <hr> -->
+				  <button class="btn btn-secondary btn-block disabled" type="button"><i class="icon-calendar text-light mr-1"></i>Calendario</button>
+				  <button class="btn btn-secondary btn-block disabled" type="button"><i class="icon-doc-text text-light mr-1"></i>Vista</button>
+				  <hr>
 				  <p><i class="icon-search text-dark mr-1"></i><strong>Buscar minuta</strong></p>
 					<select class="form-control" id="periodoMinuta" name="periodoMinuta">
 						<option value="0">Periodo</option>
@@ -57,6 +64,9 @@
 							<span class="badge rounded-pill bg-warning text-dark">PRI-2021</span>
 							<div class="btn btn-dark btn-sm float-right"><i class="icon-trash text-light"></i></div>
 							<div class="btn btn-dark btn-sm float-right mr-1"><i class="icon-minus text-light"></i></div>
+							<div class="btn btn-success btn-sm float-right mr-1"><i class="icon-calendar text-light"></i></div>
+							<div class="btn btn-success btn-sm float-right mr-1"><i class="icon-down-dir text-light"></i></div>
+							<input type="date" class="form-control w-25 float-right mr-2" id="inputFechaLimiteHomogenea" name="inputFechaLimiteHomogenea" style="margin-top: -2px;">
 						</div>
 						<div class="card-body">
 							<section value="participantesMinuta">
@@ -106,7 +116,7 @@
 														<div class="btn-group" role="group">
 															<button type="button" class="btn btn-success"><i class="icon-floppy text-light"></i></button>
 															<button type="button" class="btn btn-secondary"><i class="icon-docs text-light mr-2"></i>Duplicar</button>
-															<button type="button" class="btn btn-danger"><i class="icon-trash text-light"></i></button>
+															<button type="button" class="btn btn-dark"><i class="icon-trash text-light"></i></button>
 														</div>
 														<button type="button" class="btn btn-success disabled float-right"><i class="icon-plus text-light"></i></button>
 													</td>

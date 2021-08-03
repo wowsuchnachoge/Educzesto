@@ -33,6 +33,30 @@
 	</header>
 	<main>
 		<div class="container">
+      <br>
+    <div class="col-sm-12 col-lg-8">
+						<div class="card mb-3">
+							<div class="card-header"><i class="icon-folder text-dark mr-2"></i>Material para <strong><?php echo $_SESSION["datosUsuarioActivo"]["nombreCompleto"];?></strong></div>
+							<div class="card-body">
+							<details>
+							<summary>Lista de archivos</summary>
+							<br>
+								<?php /*foreach($listaMateriales as $valor){*/?>
+								<div class="row">
+									<div class="col"><p><i class="icon-newspaper text-dark"></i><?php echo $valor["nombre"];?></p></div>
+									<div class="col mt-2">
+										<?php if($valor["flagLink"] == 1){?>
+										<a href="<?php echo "https://".$valor["url"];?>" type="button" class="btn btn-secondary float-right ml-1" target="_blank"><i class="icon-link text-light"></i></a><?php }?>
+										<?php if($valor["flagMaterial"] == 1){?>
+										 <a href="<?php echo 'archivos/'.$valor['idMaterial'].'.pdf';?>" type="button" class="btn btn-secondary float-right" target="_blank"><i class="icon-newspaper text-light"></i></a><?php }?>
+									</div>
+								</div>
+								<hr>
+								<?php /*}*/?>
+							</details>
+							</div>
+						</div>
+			</div>
 			<section value="linksAlumno" class="mt-3">
 				<div class="row mb-3">
 					<div class="col-12">

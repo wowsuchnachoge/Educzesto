@@ -33,7 +33,7 @@
 					<div class="dropdown-content">
                         <p><a href="alumnos.php" style="color: black; text-decoration: none;">Alumnos asignados</a></p>
                         <p><a href="materiales.php" style="color: black; text-decoration: none;">Enviar material para alumnos</a></p>
-                        <p><a href="" style="color: black; text-decoration: none;">Ligas de consulta para alumnos</a></p>
+                        <p><a href="ligasParaAlumnos.php" style="color: black; text-decoration: none;">Ligas de consulta para alumnos</a></p>
 					</div>
 					</div>
                 </li>
@@ -41,8 +41,9 @@
             </ul>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item" data-toggle="modal" data-target="#modalEditarDatosUsuarioActivo" >
+                <div data-toggle="modal" data-target=".modalEditaDatosUsuarioTutor">
                     <a class="nav-link" href="#!"><div class="text-dark" >Mi perfil <i class="bi bi-person-fill"></i></div></a>
-                    <!-- <a href="#" class="font-weight-bold" data-toggle="modal" data-target="#modalEditarInfo" style="text-decoration:none;"> BLA </a> -->
+		        </div>                    <!-- <a href="#" class="font-weight-bold" data-toggle="modal" data-target="#modalEditarInfo" style="text-decoration:none;"> BLA </a> -->
                 </li>
                 <li class="nav-item"><a class="nav-link" href="#!"><div class="text-dark"> </div></a></li>
                 <li class="nav-item">

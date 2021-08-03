@@ -7950,9 +7950,7 @@ textarea.form-control-lg {
     display: inline-flex !important;
   }
 
-  .d-md-none {
-    display: none !important;
-  }
+
 
   .flex-md-fill {
     flex: 1 1 auto !important;

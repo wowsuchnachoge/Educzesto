@@ -37,8 +37,6 @@
 							<tr>
 								<th scope="col">Plataforma</th>
 								<th scope="col" style="width: 40%">Información</th>
-								<th scope="col">Usuario</th>
-								<th scope="col">Contraseña</th>
 								<th scope="col">Acceso</th>
 							</tr>
 						</thead>
@@ -53,8 +51,6 @@
 										<p class="text-justify"><?echo $valor["descripcion"];?></p>
 									</details>
 								</td>
-								<td><p><?echo $valor["usuario"];?></p></td>
-								<td><span class="badge rounded-pill bg-dark text-light"><?echo $valor["passwordPlataforma"];?></span></td>
 								<td>
 									<a href="https:<?echo $valor["link"];?>" target="_blank" class="btn btn-dark btn-sm">Acceder</a>
 								</td>

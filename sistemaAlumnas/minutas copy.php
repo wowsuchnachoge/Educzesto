@@ -67,6 +67,9 @@
 	<title>EduCzesto</title>
 </head>
 <body>
+	<br>
+	<br>
+	<br>
 	<header>
 		<?include("php/includes/dynamicHeader.php");?>
 		<!-- Recursos locales
@@ -76,13 +79,14 @@
 	</header>
 	<main>
 		<br>
-		<div class="jumbotron col-sm" style="margin-left: 20px; margin-right: 20px;">
+		<div class="jumbotron" style="margin-left: 20px; margin-right: 20px;">
         	<h1><i class="icon-plus text-dark"></i> Nueva minuta</h1>
             <p class="lead">Crear una nueva minuta que podrán consultar todos los tutores.</p>
             <!-- <button class="btn btn-lg btn-warning" type="button"><i class="icon-plus text-dark"></i>Nueva minuta</button> -->
 			<button class="btn btn-lg btn-warning" type="button" data-toggle="modal" data-target=".modalNuevaMinuta"><i class="icon-plus text-dark"></i>Nueva minuta</button>
             <!-- <a class="btn btn-lg btn-warning" role="button">Nueva minuta <i class="icon-plus text-dark"></i></a> -->
         </div>
+			<div class="row">			
 				<div class="jumbotron col-sm" style="margin-left: 32px;">
 					<h1><i class="icon-doc-text text-dark mr-1"></i> Ver minuta</h1>
 					<p class="lead">Consulta las minutas de juntas anteriores.</p>
@@ -112,7 +116,9 @@
 						
 					</div>
 				</div>
-
+	</div>
+		
+        
 		<div class="container-fluid mt-3 px-4">
 			<div class="row d-flex justify-content-center">
 				<div class="col-sm-6 col-lg-2 d-none d-sm-block d-sm-none d-md-block d-md-none d-lg-block d-lg-inline d-xl-none d-xl-inline mb-3 p-2 rounded bg-light" style="display: none !important;">
@@ -145,7 +151,7 @@
 				  </form>
 				</div>
 				<div class="col-sm-12 col-lg-10" id="minutaMinuta">
-					<div class="card" style="background-color: transparent;">
+					<div class="card">
 						<div class="card-header font-weight-bold">							
 							<h3>Minuta</h3>
 							<button class="btn btn-warning btn-sm mr-2" id="" name="idMinuta" value="<?php echo $minutaDatos['idMinuta'];?>"><i class="icon-calendar mr-1"></i><?php echo $minutaDatos["periodo"];?></button>
@@ -178,7 +184,7 @@
 										<?php }?>
 									</div>
 							</section>
-							<section value="acuerdosMinuta">
+							<section value="acuerdosMinuta" class="">
 								<br>
 								<p class="font-weight-bold mt-2" style="margin-bottom: 4px;"><u> Acuerdos</u></p>								
 								<div class="bg-light p-2 mt-1 rounded">
@@ -212,49 +218,51 @@
 									</form>
 								</div>
 								<br>
-								<br>	
-								<table class="table table-hover" id="minutasTable">
-										<thead>
-											<tr>
-												<th id="thTable" scope="col">Responsable</th>
-												<th id="thTable" scope="col" style="width: 60%">Acuerdo</th>
-												<th id="thTable" scope="col">Fecha límite de entrega</th>
-												<th id="thTable" scope="col">Realizado?</th>
-												<th id="thTable" scope="col"> </th>
-											</tr>
-										</thead>
-										<input class="btn-warning" type = "button" onclick = "checkAndUncheckBoxes()">
-										<tbody>
-											<?php foreach($minutaAcuerdosTodos as $valor){?>
-											<tr>
-												<td id="tdTable"><p class="text-justify mr-4" style="font-size: x-small;">
-													<i class="icon-user text-dark"></i>
-														<?php if(is_null($valor["responsable"])) echo "Todos";
-														for($i=0; $i<count($arregloIdUsuariosPeriodo);$i++){ 
-															if($valor["responsable"] == $arregloIdUsuariosPeriodo[$i]) echo $arregloUsuariosPeriodo[$i];
-													}?></p>
-												</td>	
+								<br>
+								<table class="table table-hover">
+									<thead>
+										<tr>
+											<th scope="col">Responsable</th>
+											<th scope="col" style="width: 60%">Acuerdo</th>
+											<th scope="col">Fecha límite de entrega</th>
+											<th scope="col">Realizado?</th>
+											<th scope="col"> </th>
+										</tr>
+									</thead>
+									<tbody>
+										<?php foreach($minutaAcuerdosTodos as $valor){?>
+										<tr>
+											<td><p class="text-justify mr-4" style="font-size: x-small;">
+												<i class="icon-user text-dark"></i>
+													<?php if(is_null($valor["responsable"])) echo "Todos";
+													for($i=0; $i<count($arregloIdUsuariosPeriodo);$i++){ 
+														if($valor["responsable"] == $arregloIdUsuariosPeriodo[$i]) echo $arregloUsuariosPeriodo[$i];
+												}?></p>
+											</td>	
 
-												<td id="tdTable">
-													<p class="text-justify mr-4" style="text-transform: none; font-size: small;"><?php  echo $valor["acuerdo"];?></p>
-												</td>
-												<td id="tdTable" style="text-align: center;">
-													<p class="text-justify mr-4" style="font-size: x-small;"><?php  echo date('F j', strtotime($valor["fechaLimite"]));?></p>
-												</td>	
-												<td id="tdTable" style="text-align: center;">													   
-													<input id="realizadoCheckBox" type="checkbox">	
-													<p id="realizado" style="font-size: xx-small;" ><?php echo $valor["realizado"];?></p>													
-												</td>				
-												<td>
-													<button type="button" class="btn btn-sm btn-danger buttonEliminaAcuerdo" style="font-size: xx-small;" data-id_acuerdo="<?php echo $valor["idAcuerdo"];?>"><i class="icon-trash text-light mr-1"></i>Eliminar acuerdo</button>
-												</td>
-											</tr>
-											<?}?>
-										</tbody>
-								</table>													
+											<td>
+												<p class="text-justify mr-4" style="text-transform: none; font-size: small;"><?php  echo $valor["acuerdo"];?></p>
+											</td>
+											<td style="text-align: center;">
+												<p class="text-justify mr-4" style="font-size: x-small;"><?php  echo date('F j', strtotime($valor["fechaLimite"]));?></p>
+											</td>											
+											<td style="text-align: center;">
+												<input type="checkbox" checked="unchecked">
+												<p class="text-justify mr-4" style="text-transform: none; font-size: small;"><?php  echo $valor["realizado"];?></p>
+												<p class="text-justify mr-4" style="text-transform: none; font-size: small;"><?php  echo $valor["realizado"];?></p>
+												<p class="text-justify mr-4" style="text-transform: none; font-size: small;"><?php  echo $valor["realizado"];?></p>
+												<p class="text-justify mr-4" style="text-transform: none; font-size: small;"><?php  echo $valor["realizado"];?></p>
+												<p class="text-justify mr-4" style="text-transform: none; font-size: small;"><?php  echo $valor["realizado"];?></p>
+											</td>
+											<td>
+												<button type="button" class="btn btn-sm btn-danger buttonEliminaAcuerdo" style="font-size: xx-small;" data-id_acuerdo="<?php echo $valor["idAcuerdo"];?>"><i class="icon-trash text-light mr-1"></i>Eliminar acuerdo</button>
+											</td>
+										</tr>
+										<?}?>
+									</tbody>
+								</table>														
 							</section>
-
-							<section value="desglosesMinuta">								
+							<section value="desglosesMinuta">
 									<p class="font-weight-bold mt-2" style="margin-bottom: 4px;"><u>Resumen y desglose</u></p>
 									<form action="php/sql/controladores/cntRegistroMinutaDesglose.php" method="POST">
 										<textarea class="form-control mt-2" name="inputContenidoDesglose" id="inputContenidoDesglose" rows="7" maxlength="3000";><?php echo $minutaDatos["desglose"];?></textarea>
@@ -275,7 +283,46 @@
 				</div>
 			</div>
 		</div>
-			
+		<div class="tasks">
+			<!-- title -->
+			<h1>CSS3 To-Do List</h1>
+			<!-- task 1 -->
+			<input id='label-1' type='checkbox' checked/>
+			<label for='label-1'>
+				<h2>Eat My Breakfast
+				<span>oatmeal, fruits &amp; morning tea</span>
+				</h2>   
+			</label>
+			<!-- task 2 -->
+			<input id='label-2' type='checkbox' checked/>
+			<label for='label-2'>
+				<h2>e-mail processing 
+				<span>art&amp;&amp;code, personal</span>
+				</h2>   
+			</label>
+			<!-- task 3 -->
+			<input id='label-3' type='checkbox'/>
+			<label for='label-3'>
+				<h2>Meditation
+				<span>out of my mind</span>
+				</h2>   
+			</label>
+			<!-- task 4 -->
+			<input id='label-4' type='checkbox'/>
+			<label for='label-4'>
+				<h2>Code, Code, Code
+				<span>hit f12 &amp; let's get wasted</span>
+				</h2>   
+			</label>
+			<!-- task 5 -->
+			<input id='label-5' type='checkbox'/>
+			<label for='label-5'>
+				<h2>Watch Screencast
+				<span>Ruby on Rails, yeah!</span>
+				</h2>   
+			</label>
+			</div>
+		
 	</main>
 	<?include("php/includes/modals.php");?>
 </body>

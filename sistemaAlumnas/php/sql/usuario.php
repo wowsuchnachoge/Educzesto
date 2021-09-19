@@ -726,6 +726,28 @@ class Usuario{
 		return $this->baseDatos->getMultiFetchAssocDB();
 	}
 
+	public function consultaAlumnosPorPeriodo($idPeriodo){
+
+		$parameters = array($idPeriodo);
+		$query = "	SELECT
+						  idUsuario,
+						  tipoUsuario,
+						  nombre,
+						  apellidoPaterno,
+						  apellidoMaterno,
+						  idPeriodo
+						FROM
+						  usuarios
+						WHERE
+							idPeriodo = '%d'
+							OR tipoUsuario = 1
+						ORDER BY
+						  idPeriodo DESC";
+
+		$this->baseDatos->selectDB($query, $parameters);
+		return $this->baseDatos->getMultiFetchAssocDB();
+	}
+
 	public function cierraBaseDatos(){
 		$this->baseDatos->cierraDB();
 	}

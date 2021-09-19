@@ -16,7 +16,7 @@
 	<title>Histórico</title>
 </head>
 <body>
-	<header class="bg-primary text-white p-3">
+	<header class="text-white p-3" style="background-color: #02833B;">
 		<div class="container">
 			<div class="d-flex text-dark">
 				<!-- Undefined index: tituloArchivo in /home/vlm0dijktjmb/public_html/login/visualizaMinuta.php on line 46 -->

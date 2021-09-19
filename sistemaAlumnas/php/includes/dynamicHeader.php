@@ -21,7 +21,7 @@
 					<span>&nbsp;&nbsp;&nbsp;Seguimiento Tutores&nbsp;&nbsp;&nbsp;</span>
 					<div class="dropdown-content">
 						<p><a href="minutas.php" style="color: black; text-decoration: none;">Minutas</a></p>
-						<p><a href="bitacoras.php" style="color: black; text-decoration: none;">Bitacoras</a></p>
+						<p><a href="bitacoraTutores.php" style="color: black; text-decoration: none;">Bitacora de tutores</a></p>
 						<p><a href="plataformas.php" style="color: black; text-decoration: none;">Accesos a Plataformas</a></p>   
                         <p><a href="materialesConsulta.php" style="color: black; text-decoration: none;">Material de consulta</a></p>                 
 					</div>
@@ -31,13 +31,29 @@
 					<div class="dropdown nav-link">
 					<span>&nbsp;&nbsp;&nbsp;Seguimiento Alumnado&nbsp;&nbsp;&nbsp;</span>
 					<div class="dropdown-content">
+                        <p><a href="bitacoraAlumnos.php" style="color: black; text-decoration: none;">Bitacora de alumnos</a></p>
                         <p><a href="alumnos.php" style="color: black; text-decoration: none;">Alumnos asignados</a></p>
                         <p><a href="materiales.php" style="color: black; text-decoration: none;">Enviar material para alumnos</a></p>
                         <p><a href="ligasParaAlumnos.php" style="color: black; text-decoration: none;">Ligas de consulta para alumnos</a></p>
 					</div>
 					</div>
                 </li>
-                
+                <?if(($_SESSION["datosUsuarioActivo"]["tipoUsuario"] == 3)||($_SESSION["datosUsuarioActivo"]["tipoUsuario"] == 4)){?>
+			    <li class="nav-item dropdown">
+					<div class="dropdown nav-link">
+					<span>&nbsp;&nbsp;&nbsp;<i class="icon-tools d-none d-sm-inline"></i> Herramientas&nbsp;&nbsp;&nbsp;</span>
+                    <div class="dropdown-content">                                    
+                       <?if(($_SESSION["datosUsuarioActivo"]["tipoUsuario"] == 3)||($_SESSION["datosUsuarioActivo"]["tipoUsuario"] == 4)){?>
+				        <a href="herramientas.php" class="btn <?echo ($claseEstiloButton = (strcmp($tituloArchivo, "herramientas.php") == 0) ? "btn-light" : "btn-outline-dark");?> d-lg-inline d-xl-none d-none d-xl-inline"><i class="icon-tools d-none d-sm-inline"></i> ADMIIIIN</a>
+			            <?}?>
+                        <p><a href="administrarAlumnos.php" style="color: black; text-decoration: none;">Administrar alumnos</a></p>
+                        <p><a href="administrarTutores.php" style="color: black; text-decoration: none;">Administrar tutores</a></p>
+                        <p><a href="/login_calidad/educzesto-mailer/index.html" style="color: black; text-decoration: none;">Sistema de Correos</a></p>
+                        <p><a href="herramientasCalendarios.php" style="color: black; text-decoration: none;">Calendario de minutas</a></p>
+					</div>                
+                </li> 
+                <?}?>
+                                           
             </ul>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item" data-toggle="modal" data-target="#modalEditarDatosUsuarioActivo" >
@@ -46,6 +62,10 @@
 		        </div>                    <!-- <a href="#" class="font-weight-bold" data-toggle="modal" data-target="#modalEditarInfo" style="text-decoration:none;"> BLA </a> -->
                 </li>
                 <li class="nav-item"><a class="nav-link" href="#!"><div class="text-dark"> </div></a></li>
+                <li class="nav-item"><a class="nav-link" href="#!"><div class="text-dark"> 
+                			<!-- Vista de administradores
+			––––––––––––––––––––––––––––––––––––––––––––––––– -->
+                </div></a></li>
                 <li class="nav-item">
                     <a href="php/sql/controladores/cntLogOut.php" class="btn btn-danger float-right mx-1" style="font-size: small;">Salir <i class="bi bi-box-arrow-right"></i></a>
                 </li>

@@ -11,5 +11,5 @@
 	$bitacora->registroBitacora($idUsuario, $inputContenidoBitacora, $fechaActual);
 	$bitacora->cierraBaseDatos();
 
-	header("Location: ../../../bitacoras.php");
+	header("Location: ../../../bitacoraTutores.php");
 ?>

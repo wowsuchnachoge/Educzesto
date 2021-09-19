@@ -137,7 +137,8 @@ class Minuta{
 						  idAcuerdo,
 						  acuerdo,
 						  responsable,
-						  fechaLimite
+						  fechaLimite,
+						  realizado
 						FROM
 						  acuerdos
 						WHERE

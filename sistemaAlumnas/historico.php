@@ -24,9 +24,11 @@
 <head>
 	<?include("php/includes/head.html");?>
 	<title>Histórico</title>
+	<?include("php/includes/dynamicHeader.php");?>
+	<link rel="stylesheet" href="./css/historico.css">
 </head>
 <body>
-	<header class="bg-primary text-white p-3">
+	<header class="text-white p-3">
 		<div class="container">
 			<div class="d-flex text-dark">
 				<a class="nav-link text-dark" href="<?php echo $_POST["tituloArchivo"];?>" role="button" style="margin-top: -5px;">
@@ -39,33 +41,64 @@
 	<main>
 		<div class="container-fluid mt-3">
 			<section value="bitacora">
-				<div class="card mb-3">
-					<div class="card-header font-weight-bold"><i class="icon-folder text-dark mr-2"></i>Bitácora</div>
-					<div class="card-body">
-						<section value="listaBitacoras" class="d-none d-sm-inline d-sm-none d-md-inline d-md-none d-lg-inline">
+				<div class="container mt-3">
+					<h1><i class="icon-book text-dark mr-2"></i> Seguimiento de tareas</h1>
+					<h3><i class="icon-user text-dark mr-2"></i> Feliza Velázquez</h3>
+					<br>
+						<!-- <section value="listaBitacoras" class="d-none d-sm-inline d-sm-none d-md-inline d-md-none d-lg-inline">
 							<table class="table table-hover">
 								<thead>
 									<tr>
-										<th scope="col" style="width: 20%">Fecha</th>
-										<th scope="col" style="width: 80%">Nota</th>
+										<th scope="col">Fecha de entrada</th>
+										<th scope="col" style="width: 70%">Entrada</th>							
+										<th scope="col">Fecha de entrega</th>
+										<th scope="col"> </th>
+										<th scope="col">Realizado?</th>
 									</tr>
 								</thead>
 								<tbody>
-									<?php foreach($arregloBitacora as $valor){?>
+								<?php foreach($arregloBitacora as $valor){?>
 									<tr>
-										<td><span class="badge rounded-pill bg-dark text-light"><?php  echo $valor["fecha"];?></span></td>
+										<td><span class="badge rounded-pill bg-dark text-light"><?php  echo date('F j', strtotime($valor["fecha"]));?></span></td>
 										<td>
 											<p class="text-justify mr-4"><?php  echo $valor["desglose"];?></p>
+										</td>						
+										<td>
+											<span class="badge rounded-pill bg-secondary text-light"><?php  echo date('F j', strtotime($valor["fecha"]));?></span></td>
+										<td>
+										<td style="text-align: center;">
+															<input type="checkbox" checked="unchecked">
+															<p class="text-justify mr-4" style="text-transform: none; font-size: small;"><?php  echo $valor["realizado"];?></p>
+															<p class="text-justify mr-4" style="text-transform: none; font-size: small;"><?php  echo $valor["realizado"];?></p>
+															<p class="text-justify mr-4" style="text-transform: none; font-size: small;"><?php  echo $valor["realizado"];?></p>
+															<p class="text-justify mr-4" style="text-transform: none; font-size: small;"><?php  echo $valor["realizado"];?></p>
+															<p class="text-justify mr-4" style="text-transform: none; font-size: small;"><?php  echo $valor["realizado"];?></p>
+										</td>
+										<td>
+											<button class="btn btn-danger btn-sm mr-2 buttonEliminaBitacora" data-id_bitacora="<?php  echo $valor['idBitacora'];?>" style="font-size: xx-small;">Eliminar entrada <i class="icon-trash text-light"></i></button>							
 										</td>
 									</tr>
 									<?}?>
 								</tbody>
 							</table>
-						</section>
+						</section> -->
+						<ul id="listPostit">
+							<?php foreach($arregloBitacora as $valor){?>				
+								<li id="postit">
+									<a>
+									<!-- <h3>Title #1</h3> -->
+									<h5><?php  echo date('F j', strtotime($valor["fecha"]));?></h5>
+									<p><?php  echo $valor["desglose"];?></p>
+									<p><b>Realizado?</b> <input type="checkbox" checked="unchecked"></p>
+									<p class="text-justify mr-4" style="text-transform: none; font-size: small;"><?php  echo $valor["realizado"];?></p>
+									<button class="btn btn-danger btn-sm mr-2 buttonEliminaBitacora" data-id_bitacora="<?php  echo $valor['idBitacora'];?>" style="font-size: xx-small;">Eliminar<i class="icon-trash text-light"></i></button>																			
+									</a>
+								</li>
+							<?}?>				
+						</ul>
 					</div>
-				</div>
 			</section>
-			<section value="archivos">
+			<!-- <section value="archivos">
 				<div class="card mb-3">
 					<div class="card-header font-weight-bold"><i class="icon-folder text-dark mr-2"></i>Archivos</div>
 					<div class="card-body">
@@ -98,7 +131,7 @@
 						</table>
 					</div>
 				</div>
-			</section>
+			</section> -->
 		</div>
 	</main>
 </body>

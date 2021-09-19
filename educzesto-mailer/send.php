@@ -7,7 +7,7 @@ require './dbConf.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 // NOTE: Quitar estos comentarios para hacer debug
-// use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\SMTP;
 
 
 $mail = new PHPMailer(true);
@@ -18,12 +18,12 @@ $lineTotal = $_POST["email-body-line-value"];
 
 try {
     // NOTE: Quitar estos comentarios para hacer debug
-    // $mail->SMTPDebug = SMTP::DEBUG_SERVER; 
+    $mail->SMTPDebug = SMTP::DEBUG_SERVER; 
     $mail->isSMTP();
     $mail->Host = 'p3plzcpnl466174.prod.phx3.secureserver.net';
     $mail->SMTPAuth = true;
     $mail->SMTPKeepAlive = true;
-    $mail->Username = 'mail@educzesto.org';
+    $mail->Username = 'vlm0dijktjmb';
     $mail->Password = 'ServicioSocial2021';
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port = 587;
@@ -99,10 +99,10 @@ try {
 
     $mail->send();
     // NOTE: echo statements for debugging
-    // echo $table;
-    // echo "\nmail sent!";
+    echo $table;
+    echo "\nmail sent!";
 } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
-header('Location: http://educzesto.org/login/educzesto-mailer');
+//header('Location: http://educzesto.org/login/educzesto-mailer');
 ?>

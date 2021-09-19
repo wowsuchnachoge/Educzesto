@@ -73,70 +73,26 @@
     <link href="css/styles.css" rel="stylesheet" />
     <script type="text/javascript" src="js/inicio.js"></script>
 </head>
-
 <body>
     <!-- Responsive navbar-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-warning">
-        <a class="navbar-brand" href="inicio.php"><img src="css/img/logo.png" height="50"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link active" aria-current="page" href="inicio.php">
-                        <div class="text-dark"><i class="icon-home"></i>
-                        </div>
-                    </a>
-                </li>
-				<li class="nav-item dropdown">
-					<div class="dropdown nav-link">
-					<span>&nbsp;Seguimiento Tutores&nbsp;&nbsp;&nbsp;</span>
-					<div class="dropdown-content">
-						<p><a href="minutas.php" style="color: black; text-decoration: none;">Minutas</a></p>
-						<p><a href="bitacoras.php" style="color: black; text-decoration: none;">Bitacoras</a></p>
-						<p><a href="plataformas.php" style="color: black; text-decoration: none;">Cuentas de EduCzesto</a></p>   
-                        <p><a href="materialesConsulta.php" style="color: black; text-decoration: none;">Material de consulta</a></p>                 
-					</div>
-					</div>
-                </li>
-				<li class="nav-item dropdown">
-					<div class="dropdown nav-link">
-					<span>&nbsp;&nbsp;&nbsp;Seguimiento Alumnado&nbsp;&nbsp;&nbsp;</span>
-					<div class="dropdown-content">
-                        <p><a href="alumnos.php" style="color: black; text-decoration: none;">Perfiles de alumnos asignados</a></p>
-                        <p><a href="materiales.php" style="color: black; text-decoration: none;">Enviar material para alumnos</a></p>
-                        <p><a href="" style="color: black; text-decoration: none;">Ligas de consulta para alumnos</a></p>
-					</div>
-					</div>
-                </li>
-                
-            </ul>
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item" data-toggle="modal" data-target="#modalEditarDatosUsuarioActivo" >
-                <div data-toggle="modal" data-target=".modalEditaDatosUsuarioTutor">
-                    <a class="nav-link" href="#!"><div class="text-dark" >Mi perfil <i class="bi bi-person-fill"></i></div></a>
-		        </div> 
-                </li>
-                <li class="nav-item"><a class="nav-link" href="#!"><div class="text-dark"> </div></a></li>
-                <li class="nav-item">
-                    <a href="php/sql/controladores/cntLogOut.php" class="btn btn-danger float-right mx-1" style="font-size: small;">Salir <i class="bi bi-box-arrow-right"></i></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"> </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <header class="bg-warning py-3" style="background-image: url(css/img/sky_student.jpg); background-repeat: no-repeat; background-size: cover;">
+    <header class="bg-warning py-3" style="background-repeat: no-repeat; background-size: cover;">
+        		<?include("php/includes/dynamicHeader.php");?>
+		<!-- Recursos locales
+		––––––––––––––––––––––––––––––––––––––––––––––––– -->
+		<script type="text/javascript" src="js/minutas.js"></script>
         <div class="container px-3">
-            <div class="row gx-5 justify-content-center">
+            <div class="row gx-5 justify-content-center" style="background-image: url(css/img/bienvenido.jpeg); background-repeat: no-repeat; background-size: cover;">
                 <div class="col-lg-6">
                     <div class="text-center my-5">
                         <h1 class="display-5 fw-bolder text-white mb-2">Bienvenido a EduCzesto</h1>
-                        <p class="lead text-white-50 sm-4">Aquí podrás manejar todo lo relacionado a <br>tu servicio social
+                        <p class="lead text-white sm-4">Aquí podrás manejar todo lo relacionado a <br>tu servicio social
                             con EduCzesto.</p>                       
                     </div>
+                    <!-- <div class="text-center my-5">
+                        <h1 class="display-5 fw-bolder text-white mb-2">Bienvenido a EduCzesto</h1>
+                        <p class="lead text-white-50 sm-4">Aquí podrás manejar todo lo relacionado a <br>tu servicio social
+                            con EduCzesto.</p>                       
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -219,7 +175,7 @@
                     </div>
                     <h2 class="h4 fw-bolder">Recordatorios</h2>
                     <p>¿Has estado actualizando tu bitácora? No se te olvide que esto debe estar completo para finalizar tu servicio social!</p>
-                    <a class="text-decoration-none" href="bitacora.php">
+                    <a class="text-decoration-none" href="bitacoraTutores.php">
                         Ir
                         <i class="bi bi-arrow-right"></i>
                     </a>

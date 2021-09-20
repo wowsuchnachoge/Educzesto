@@ -15,9 +15,9 @@ document.getElementById("prevBtn").style.display = "none";
 document.getElementById("prevBtn").style.display = "inline";
 }
 if (n == (x.length - 1)) {
-document.getElementById("nextBtn").innerHTML = '<i class="fa fa-angle-double-right"></i>';
+document.getElementById("nextBtn").innerHTML = '<i class="bi bi-chevron-double-right"></i>';
 } else {
-document.getElementById("nextBtn").innerHTML = '<i class="fa fa-angle-double-right"></i>';
+document.getElementById("nextBtn").innerHTML = '<i class="bi bi-chevron-double-right"></i>';
 }
 fixStepIndicator(n)
 }

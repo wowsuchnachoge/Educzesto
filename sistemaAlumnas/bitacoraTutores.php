@@ -53,86 +53,70 @@
 		<!-- Recursos locales
 		––––––––––––––––––––––––––––––––––––––––––––––––– -->
 		<script type="text/javascript" src="js/bitacoras.js"></script>
+		<script type="text/javascript" src="js/form.js"></script>
 	</header>
-	<br>
-	<div class="container">	
-			<div class="row">		
-				<div class="jumbotron col-sm" style="margin-left: 32px;">
-					<h1><i class="icon-plus text-dark mr-1"></i> Agregar a tu bitácora</h1>
-					<div class="row mb-3">
-					<p class="lead">Agrega una nueva entrada para tu bitácora.</p>
-					<div class="card-body">
-						<form action="php/sql/controladores/cntNuevoElementoBitacoraTutores.php" method="POST">
-							<textarea class="form-control" name="inputContenidoBitacora" id="inputContenidoBitacora" rows="2" maxlength="300" placeholder="Ingresa aquí la entrada a tu bitácora, por ejemplo: Publiqué un post en Instagram."></textarea>
-							<input type="text" name="idUsuario" value="<?php echo $idUsuario;?>" style="display: none;">
-							<p class="ml-1 mt-1" id="contadorCaracteres"><small><span id="caracteresRestantes">300</span>/300</small></p>
-							<span class="badge bg-danger mb-2 mr-1 text-light" id="adviseMaximoCaracteres" style="display: none;">Has alcanzado el limite máximo de caracteres.</span>							
-							<b> Fecha límite de entrega</b>
-							<input type="date" class="form-control" id="inputFechaLimite" name="inputFechaLimite">	
-							<button type="submit" class="btn btn-success btn-sm float-right mt-2"><i class="icon-plus text-light"></i> Agregar a mi bitácora</button>						
-						</form>
-					</div>
-			</div>
-			</div>
-			</div>
-	
+	<br>	
 	<main>
 		<div class="container mt-3">
-		<h1><i class="icon-book text-dark mr-2"></i> Mi bitácora</h1>
-		<br>
-			<!-- <section value="listaBitacoras" class="d-none d-sm-inline d-sm-none d-md-inline d-md-none d-lg-inline">
-				<table class="table table-hover">
-					<thead>
-						<tr>
-							<th scope="col">Fecha de entrada</th>
-							<th scope="col" style="width: 70%">Entrada</th>							
-							<th scope="col">Fecha de entrega</th>
-							<th scope="col"> </th>
-							<th scope="col">Realizado?</th>
-						</tr>
-					</thead>
-					<tbody>
-					<?php foreach($arregloBitacora as $valor){?>
-						<tr>
-							<td><span class="badge rounded-pill bg-dark text-light"><?php  echo date('F j', strtotime($valor["fecha"]));?></span></td>
-							<td>
-								<p class="text-justify mr-4"><?php  echo $valor["desglose"];?></p>
-							</td>						
-							<td>
-								<span class="badge rounded-pill bg-secondary text-light"><?php  echo date('F j', strtotime($valor["fecha"]));?></span></td>
-							<td>
-							<td style="text-align: center;">
-												<input type="checkbox" checked="unchecked">
-												<p class="text-justify mr-4" style="text-transform: none; font-size: small;"><?php  echo $valor["realizado"];?></p>
-												<p class="text-justify mr-4" style="text-transform: none; font-size: small;"><?php  echo $valor["realizado"];?></p>
-												<p class="text-justify mr-4" style="text-transform: none; font-size: small;"><?php  echo $valor["realizado"];?></p>
-												<p class="text-justify mr-4" style="text-transform: none; font-size: small;"><?php  echo $valor["realizado"];?></p>
-												<p class="text-justify mr-4" style="text-transform: none; font-size: small;"><?php  echo $valor["realizado"];?></p>
-							</td>
-							<td>
-								<button class="btn btn-danger btn-sm mr-2 buttonEliminaBitacora" data-id_bitacora="<?php  echo $valor['idBitacora'];?>" style="font-size: xx-small;">Eliminar entrada <i class="icon-trash text-light"></i></button>							
-							</td>
-						</tr>
-						<?}?>
-					</tbody>
-				</table>
-			</section> -->
-			<ul id="listPostit">
-				<?php foreach($arregloBitacora as $valor){?>				
+			<h1><i class="icon-book text-dark mr-2"></i> Mi bitácora</h1>
+			<br>
+		</div>
+		<div class="row">
+			<div class="col-8">
+				<ul id="listPostit">
+					<?php foreach($arregloBitacora as $valor){?>				
 					<li id="postit">
 						<a>
-						<!-- <h3>Title #1</h3> -->
-						<h5><?php  echo date('F j', strtotime($valor["fecha"]));?></h5>
-						<p><?php  echo $valor["desglose"];?></p>
-						<p><b>Realizado?</b> <input type="checkbox" checked="unchecked"></p>
-						<p class="text-justify mr-4" style="text-transform: none; font-size: small;"><?php  echo $valor["realizado"];?></p>
-						<button class="btn btn-danger btn-sm mr-2 buttonEliminaBitacora" data-id_bitacora="<?php  echo $valor['idBitacora'];?>" style="font-size: xx-small;">Eliminar<i class="icon-trash text-light"></i></button>																			
-						</a>
+							<h6><?php  echo date('F j', strtotime($valor["fecha"]));?></h6>
+							<p><?php  echo $valor["desglose"];?></p>
+							<p><input type="checkbox" checked="unchecked"><b> Realizado?</b></p>							
+							<p class="text-justify mr-4" style="text-transform: none; font-size: small;"><?php  echo $valor["realizado"];?></p>							
+							<button class="btn btn-danger btn-sm buttonEliminaBitacora" data-id_bitacora="<?php  echo $valor['idBitacora'];?>" style="font-size: xx-small;">Eliminar<i class="icon-trash text-light"></i></button>																			
+						</a>					
 					</li>
-				<?}?>				
-			</ul>
-		</div>
+					<?}?>				
+				</ul>
+  			</div>
+  			<div class="col-4">
+				<div class="row d-flex justify-content-center align-items-center">
+					<div class="col-md-8">
+						<form action="historico.php" method="POST" style="display: inline;"></form>
+						<form id="regForm" action="php/sql/controladores/cntNuevoElementoBitacoraTutores.php" method="POST">
+							<h3 id="register"><i class="bi bi-plus-circle mr-2"></i> Agregar a tu bitacora</h3>
+							<div class="all-steps" id="all-steps"><span class="step"><i class="bi bi-pencil"></i></span> <span class="step"><i class="bi bi-calendar-check"></i></span> </div>
+							<div class="tab">
+								<h6>Ingresa la entrada a tu bitácora:</h6>
+									<p> <input name="inputContenidoBitacora" id="inputContenidoBitacora" rows="2" style="font-size: xx-small;" placeholder="Por ejemplo: Publiqué un post en Instagram." oninput="this.className = ''" name="fname"> </p>			
+								<!-- <textarea name="inputContenidoBitacora" id="inputContenidoBitacora" placeholder="Ingresa aquí la entrada a tu bitácora, por ejemplo: Publiqué un post en Instagram." oninput="this.className = ''" name="fname"> </textarea>
+								<p class="ml-1 mt-1" id="contadorCaracteres"><small><span id="caracteresRestantes">300</span>/300</small></p> -->
+								<!-- <span class="badge bg-danger mb-2 mr-1 text-light" id="adviseMaximoCaracteres" style="display: none;">Has alcanzado el limite máximo de caracteres.</span>																																		 -->
+								<p> <input type="text" name="idUsuario" value="<?php echo $idUsuario;?>" style="display: none;"> </p>
+								<div style="float:right;"> <button id="agregarBitacoraButton" type="submit" class="btn btn-success btn-sm float-right mt-2"><i class="icon-plus text-light"></i></button> </div>								
+							</div>								 
+							<div class="tab">
+								<h6>¿Cuál es la fecha de entrega?</h6>
+								<p><input id="inputContenidoBitacora" type="date" oninput="this.className = ''" name="dd" style="font-size: xx-small;">
+							</div>
+							<div style="overflow:auto;">						
+								<a href="bitacoraTutores.php">
+									<div class="tab" style="float:right;">
+										<!-- <p id="done"><i class="bi bi-check"></i> Agregado existosamente</p> -->
+										<button class="btn btn-success" type="submit"><i class="bi bi-plus"></i> Agregar</button>	
+										<!-- <button type="button"><i class="bi bi-arrow-repeat"></i> Agregar otra entrada</button> -->
+									</div>
+								</a>	
+							</div>															
+							<div style="overflow:auto;" id="nextprevious">
+								<div style="float:right;"> <button class="btn btn-warning" type="button" id="prevBtn" onclick="nextPrev(-1)"><i class="bi bi-chevron-double-left"></i></button> <button class="btn btn-warning" type="button" id="nextBtn" onclick="nextPrev(1)"><i class="bi bi-chevron-double-right"></i></button> </div>
+								<!-- <div style="float:right;"> <button type="submit" class="btn btn-success btn-sm float-right mt-2"><i class="icon-plus text-light"></i></button> </div> -->
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>	
+  		</div>
 	</main>
 	<?include("php/includes/modals.php");?>
 </body>
 </html>
+

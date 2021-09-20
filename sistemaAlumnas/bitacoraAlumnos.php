@@ -148,39 +148,3 @@
 	<?include("php/includes/modals.php");?>
 </body>
 </html>
-
-<!-- 
-<!DOCTYPE html>
-<html>
-<head>
-	<?include("php/includes/head.html");?>
-	<title>Bitácora</title>
-	<link rel="stylesheet" href="./css/bitacoras.css">
-</head>
-<body>
-	<header>
-		<?include("php/includes/dynamicHeader.php");?>
-		<script type="text/javascript" src="js/bitacoras.js"></script>
-	</header>
-	<br>
-				<div class="row">			
-				<div class="col-sm col-lg-2" style="margin-left: 32px;">
-					<div class="jumbotron btn-warning" style="margin-right: 20px;">
-						<h3><i class="icon-user text-dark mr-2"></i> Elegir alumno</h3>
-						<p class="lead" style="font-size: small;">Consulta las bitácoras de los alumnos de este semestre.</p>						
-						<form action="historico.php" method="POST" style="display: inline;">
-							<select class="form-control w-40 float-right mr-1" id="idUsuario" name="idUsuario" style="margin-top: -2px; font-size: xx-small;">
-								<option value="0">Seleccionar</option>
-								<optgroup label="Alumnos">
-									<?php for($i=0; $i<count($arregloUsuariosPeriodo);$i++){ ?>
-										<option value="<?php echo $arregloIdUsuariosPeriodo[$i];?>"><?php echo $arregloUsuariosPeriodo[$i];?></option>
-									<?php }?>
-								</optgroup>
-							</select>
-							<button type="submit" class="btn btn-success btn-sm float-right mr-1" style="margin-top: 5px; font-size: xx-small;"><i class="icon-eye text-light"></i> Ver seguimiento y bitácora</button>
-							<input type="text" name="tituloArchivo" value="<?php echo $tituloArchivo;?>" style="display: none;">
-						</form>
-						<br>
-						<br>
-					</div>
-				</div> -->

@@ -8,10 +8,10 @@
 	$minuta = new Minuta();
 	$fila = $minuta->consultaPeriodoIdTodos($idPeriodo);
 	$minuta->cierraBaseDatos();
-	
+
 	for ($i = 0; $i < count($fila); $i++){
 
-		$options = sprintf('<option value="%s">%s</option>', $fila[$i]["idMinuta"], $fila[$i]["fecha"]);
+		$options = sprintf('<option value="%s">%s</option>', $fila[$i]["idMinuta"], date("F j", strtotime($fila[$i]["fecha"])));
 		echo $options;
 	}
 ?>

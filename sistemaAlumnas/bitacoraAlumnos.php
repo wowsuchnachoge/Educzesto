@@ -100,10 +100,10 @@
 							<br>
 						</div>
 						<form id="regForm" action="php/sql/controladores/cntNuevoElementoBitacoraAlumnos.php" method="POST">
-							<h3 id="register"><i class="bi bi-plus-circle mr-2"></i> Agregar a tu bitacora</h3>
+							<h3 id="register"><i class="bi bi-plus-circle mr-2"></i> Agregar a bitácora de:</h3>
 							<div class="all-steps" id="all-steps"><span class="step"><i class="bi bi-person"></i></span> <span class="step"><i class="bi bi-pencil"></i></span><span class="step"><i class="bi bi-calendar-check"></i></span> </div>
 							<div class="tab">
-								<h6>Seleccionar:</h6>
+								<h6>Seleccionar alumno:</h6>
 								<select class="form-control w-40 mr-1" id="idUsuario" name="idUsuario" style="margin-bottom: 5px; font-size: xx-small;">
 									<option value="0">Seleccionar</option>
 									<optgroup label="Alumnos">

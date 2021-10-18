@@ -7,10 +7,10 @@
 	<!-- Recursos locales
 	––––––––––––––––––––––––––––––––––––––––––––––––– -->
 	<script type="text/javascript" src="js/registro.js"></script>
-
+	<link href="css/styles.css" rel="stylesheet" />
 </head>
 <body>
-	<header class="bg-primary text-white p-3">
+	<header class="navbar navbar-expand-lg navbar-light bg-warning">
 		<div class="container">
 			<div class="d-flex text-dark">
 				<a class="nav-link text-dark" href="index.php" role="button" style="margin-top: -5px;">
@@ -168,7 +168,7 @@
 					</div>
 					<hr>
 					<span class="badge bg-danger text-light mb-2" id="alertRegistro">Favor de completar los campos vacíos</span><br>
-					<button type="submit" class="btn btn-primary text-dark" id="buttonRegistro">Registrarse</button>
+					<button type="submit" class="btn btn-warning" id="buttonRegistro">Registrarse</button>
 					<a class="btn btn-dark" href="login.php">Cancelar</a>
 				</form>
 			</div>

@@ -50,9 +50,9 @@ $(document).ready(function(){
 		let url = "http://educzesto.org/login/php/sql/ajax/eliminaBitacora.php?idBitacora="+idBitacora;
 		// let url = "http://localhost/sistemaAlumnas2021/codigo/v11/php/sql/ajax/eliminaBitacora.php?idBitacora="+idBitacora;
 
-		$.ajax({url:url, success: function(result){
-
+		$.ajax({url:url, success: function(result){			
 			console.log(result);
+			window.location.href = 'http://educzesto.org/login/bitacoraTutores.php';
 		}});
 	});
 });

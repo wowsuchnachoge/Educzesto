@@ -89,26 +89,46 @@ $(document).ready(function () {
 		$(this).closest('tr').remove();
 
 		let url = "http://educzesto.org/login/php/sql/ajax/eliminaAcuerdo.php?idAcuerdo=" + idAcuerdo;
-		// let url = "http://localhost/sistemaAlumnas2021/codigo/v12/php/sql/ajax/eliminaAcuerdo.php?idAcuerdo="+idAcuerdo;
 
 		$.ajax({
 			url: url, success: function (result) {
+				console.log(result);				 
+			}
+		});
+	});
 
+	function sleep(milliseconds) {
+		const date = Date.now();
+		let currentDate = null;
+		do {
+		  currentDate = Date.now();
+		} while (currentDate - date < milliseconds);
+	  }
+
+	$(".buttonCambiarEstado").click(function (evento) {
+
+		let idAcuerdo = $(this).data("id_acuerdo");
+		let estadoAcuerdo = $(this).data("estado_acuerdo");
+		
+		let url = "http://educzesto.org/login/php/sql/ajax/cambiarEstadoAcuerdo.php?idAcuerdo=" + idAcuerdo + "&estadoAcuerdo=" + estadoAcuerdo;		
+
+		$.ajax({
+			url: url, success: function (result) {
 				console.log(result);
+				console.log(idAcuerdo);
+				console.log(url);
+				
 			}
 		});
 	});
 
 	$("#periodoMinuta").on("input", function () {
-
+		
 		$("#fechaMinuta option").remove();
 		let url = "http://educzesto.org/login/php/sql/ajax/consultaFechasMinuta.php?idPeriodo=" + $(this).val();
-		// let url = "http://localhost/sistemaAlumnas2021/codigo/v12/php/sql/ajax/consultaFechasMinuta.php?idPeriodo="+$(this).val();
-
 		$.ajax({
 			url: url, success: function (result) {
-				$("#fechaMinuta").append(result);
-
+				$("#fechaMinuta").append(result);				
 			}
 		});
 	});
@@ -121,50 +141,7 @@ $(document).ready(function () {
 
 	$("#inputFechaLimite").val(fechaSigSemana);
 
-	/* if (document.getElementById("realizado").textContent == "0") {
-		console.log("Not done");
-		document.getElementById("realizadoCheck").checked = true;
-	} else {
-		console.log("Done", document.getElementById("realizado").value);
-		document.getElementById("realizadoCheck").checked = false;
-	} */
-
-	/* 	var matches = element.getElementsByClassName('realizado');
-		for (var i=0; i<matches.length; i++) {	  
-			if (matches[i] == "0") {
-				console.log("No realizado");
-				document.getElementById("realizadoCheckBox").checked = false;
-				
-			} else {			
-				console.log("Realizado");
-				document.getElementById("realizadoCheckBox").checked = true;			
-			}
-		} */
-
-	function checkAndUncheckBoxes() {
-		var elements = element.getElementsByClassName('realizado'); // get all elements
-		for (var i = 0; i < elements.length; i++) {
-			if (elements[i].textContent == "0") {
-				console.log("No realizado");
-				document.getElementById("realizadoCheckBox").checked = false;
-			} else {
-				console.log("Realizado");
-				document.getElementById("realizadoCheckBox").checked = true;
-			}
-		}
-	}
-
-	/* if (document.getElementById("realizado").textContent == "0") {
-		console.log("Not done");
-		document.getElementById("realizadoCheck").checked = true;
-	} else {
-		console.log("Done", document.getElementById("realizado").value);
-		document.getElementById("realizadoCheck").checked = false;
-	} */
-
 });
-
-
 
 function formatDate(date) {
 	var d = new Date(date),
@@ -172,10 +149,17 @@ function formatDate(date) {
 		day = '' + d.getDate(),
 		year = d.getFullYear();
 
-	if (month.length < 2)
+	if (month == 1)
 		month = '0' + month;
 	if (day.length < 2)
 		day = '0' + day;
 
-	return [year, month, day].join('-');
+	return [day, month, year].join('-');
+}
+
+function showGuardado() {
+	var x = document.getElementById("guardado");
+	if (x.style.display === "none") {
+	  x.style.display = "block";
+	}
 }

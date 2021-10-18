@@ -10,16 +10,15 @@ function showTab(n) {
     x[n].style.display = "block";    
     if (n == 0) {
         document.getElementById("prevBtn").style.display = "none";
-        /* document.getElementById("agregarBitacoraButton").style.display = "none"; */
+        /* document.getElementById("agregarAcuerdoButton").style.display = "none"; */
     } else {
         document.getElementById("prevBtn").style.display = "inline";
-        document.getElementById("agregarBitacoraButton").style.display = "none";
+        document.getElementById("agregarAcuerdoButton").style.display = "none";
     }
-    if (n == (x.length - 1)) {
-        document.getElementById("nextBtn").innerHTML = '<i class="bi bi-chevron-double-right"></i>';
+    if (n == 3) {
         document.getElementById("prevBtn").style.display = "none";
         document.getElementById("nextBtn").style.display = "none";
-        document.getElementById("agregarBitacoraButton").style.display = "block";
+        document.getElementById("agregarAcuerdoButton").style.display = "block";
     } else {
         document.getElementById("nextBtn").innerHTML = '<i class="bi bi-chevron-double-right"></i>';
     }

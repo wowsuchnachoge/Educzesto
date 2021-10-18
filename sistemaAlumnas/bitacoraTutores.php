@@ -67,11 +67,22 @@
 					<?php foreach($arregloBitacora as $valor){?>				
 					<li id="postit">
 						<a>
-							<h6><?php  echo date('F j', strtotime($valor["fecha"]));?></h6>
-							<p><?php  echo $valor["desglose"];?></p>
-							<p><input type="checkbox" checked="unchecked"><b> Realizado?</b></p>							
+							<h6 class="no-margin text-left"><b><?php  echo date('F j', strtotime($valor["fecha"]));?></b></h6>							
+<!-- 							<label class="no-margin text-left" style="font-size: x-small;">Realizado:</label>	
+							<form action="php/sql/controladores/cntRegistroAcuerdoRealizado.php" method="POST">
+								<select name="realizado" class="form-control text-center" style="background: transparent; border: none;">
+									<option selected="selected" value="<?php echo $valor["realizado"]?>"><b><?php if ($valor["realizado"] == '0') {echo "No";} else { echo "Si";}?></b></option>	
+									<option value="<?php if ($valor["realizado"] == '0') {echo "1";} else { echo "0";}?>"><b><?php if ($valor["realizado"] == '0') {echo "Si";} else { echo "No";}?></b></option>													
+								</select>
+								<input type="text" name="idAcuerdo" value="<?php echo $idAcuerdo;?>" hidden>
+								<button type="submit" class="btn btn-success btn-sm float-right mt-2"><i class="icon-floppy text-light"></i>Guardar estado</button>
+							</form>	-->	
+							<p class="text-danger buttonEliminaBitacora no-margin text-left" data-id_bitacora="<?php  echo $valor['idBitacora'];?>" style="font-size: xx-small;">Eliminar <i class="icon-trash text-danger"></i></p>
+							<!-- <button class="btn btn-danger btn-sm buttonEliminaBitacora" data-id_bitacora="<?php  echo $valor['idBitacora'];?>" style="font-size: xx-small;">Eliminar<i class="icon-trash text-light"></i></button> -->
+							<hr class="no-margin">
+							<p style="color: gray; font-size: xx-small;"><?php  echo $valor["desglose"];?></p>														
 							<p class="text-justify mr-4" style="text-transform: none; font-size: small;"><?php  echo $valor["realizado"];?></p>							
-							<button class="btn btn-danger btn-sm buttonEliminaBitacora" data-id_bitacora="<?php  echo $valor['idBitacora'];?>" style="font-size: xx-small;">Eliminar<i class="icon-trash text-light"></i></button>																			
+							<p class="no-margin text-right text-dark" style="font-size: xx-small;">Fecha de entrega:<br> <?php  echo date('F j', strtotime($valor["fecha"]));?></p>
 						</a>					
 					</li>
 					<?}?>				

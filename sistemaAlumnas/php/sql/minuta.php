@@ -110,6 +110,20 @@ class Minuta{
 			$this->baseDatos->insertDB($query, $parameters);
 	}
 
+	public function registroAcuerdoRealizado($idAcuerdo, $realizado){
+			
+		$parameters = array($idAcuerdo, $realizado);
+		$query = "	UPDATE
+						  acuerdos
+						SET
+						  realizado = '%d'
+						WHERE
+						  idAcuerdo = '%d'
+						";
+
+		$this->baseDatos->updateDB($query, $parameters);
+	}
+
 	public function registroMinutaAcuerdoSinResponsable($idMinuta, $inputContenidoAcuerdo, $inputFechaLimite){
 
 			$parameters = array($idMinuta, $inputContenidoAcuerdo, $inputFechaLimite);
@@ -172,6 +186,27 @@ class Minuta{
 
 		$parameters = array($idAcuerdo);
 		$this->baseDatos->deleteDB($query, $parameters);
+	}
+
+	public function cambiarEstadoAcuerdo($estado, $idAcuerdo){
+		$query = "	UPDATE acuerdos
+					    SET realizado = '%d'
+						    WHERE idAcuerdo = '%d'";
+		$parameters = array($estado, $idAcuerdo);
+		$this->baseDatos->updateDB($query, $parameters);
+	}	
+	
+	public function getEstadoActualAcuerdo($idAcuerdo){
+		$parameters = array($idAcuerdo);
+		$query = "	SELECT
+						  realizado
+						FROM
+						  acuerdos
+						WHERE
+							idAcuerdo = '%d'";
+
+		$this->baseDatos->selectDB($query, $parameters);
+		return $this->baseDatos->getMultiFetchAssocDB();
 	}
 
 	public function editaMinutaPeriodo($idMinuta, $accion, $listaPeriodos){

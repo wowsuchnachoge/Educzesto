@@ -67,21 +67,22 @@
 					<?php foreach($arregloBitacora as $valor){?>				
 					<li id="postit">
 						<a>
-							<h6 class="no-margin text-left"><b><?php  echo date('F j', strtotime($valor["fecha"]));?></b></h6>							
-<!-- 							<label class="no-margin text-left" style="font-size: x-small;">Realizado:</label>	
-							<form action="php/sql/controladores/cntRegistroAcuerdoRealizado.php" method="POST">
-								<select name="realizado" class="form-control text-center" style="background: transparent; border: none;">
-									<option selected="selected" value="<?php echo $valor["realizado"]?>"><b><?php if ($valor["realizado"] == '0') {echo "No";} else { echo "Si";}?></b></option>	
-									<option value="<?php if ($valor["realizado"] == '0') {echo "1";} else { echo "0";}?>"><b><?php if ($valor["realizado"] == '0') {echo "Si";} else { echo "No";}?></b></option>													
-								</select>
-								<input type="text" name="idAcuerdo" value="<?php echo $idAcuerdo;?>" hidden>
-								<button type="submit" class="btn btn-success btn-sm float-right mt-2"><i class="icon-floppy text-light"></i>Guardar estado</button>
-							</form>	-->	
-							<p class="text-danger buttonEliminaBitacora no-margin text-left" data-id_bitacora="<?php  echo $valor['idBitacora'];?>" style="font-size: xx-small;">Eliminar <i class="icon-trash text-danger"></i></p>
+							<h6 class="no-margin text-left"><b><?php  echo date('F j', strtotime($valor["fecha"]));?></b></h6>
+							<p class="text-danger buttonEliminaBitacora no-margin text-left" data-id_bitacora="<?php  echo $valor['idBitacora'];?>" style="font-size: xx-small;">Eliminar <i class="icon-trash text-danger"></i></p>							
+							<form action="php/sql/controladores/cntRegistroAcuerdoRealizado.php" method="POST">												
+								<select name="realizado" class="classic mt-2"> <!-- style="color: white; background: #6c757d; border: none; font-size: x-small;" -->
+									<option selected="selected" value="<?php echo $valor["realizado"]?>"><b><?php if ($valor["realizado"] == '0') {echo "En proceso";} else { echo "Realizado";}?></b></option>	
+									<option value="<?php if ($valor["realizado"] == '0') {echo "Realizado";} else { echo "En proceso";}?>"><b><?php if ($valor["realizado"] == '0') {echo "Realizado";} else { echo "En proceso";}?></b></option>													
+								</select>		
+								<button onclick="showGuardado()"type="submit" class="btn btn-light btn-sm float-left mt-2 buttonCambiarEstado" style="font-size: xx-small;" data-id_acuerdo="<?php echo $valor["idAcuerdo"];?>" data-estado_acuerdo="<?php echo $valor["realizado"];?>"><i class="icon-floppy text-dark"></i>Guardar estado</button>											
+								<input type="text" name="idAcuerdo" value="<?php echo $idAcuerdo;?>" hidden>																									
+							</form>	
+							
 							<!-- <button class="btn btn-danger btn-sm buttonEliminaBitacora" data-id_bitacora="<?php  echo $valor['idBitacora'];?>" style="font-size: xx-small;">Eliminar<i class="icon-trash text-light"></i></button> -->
 							<hr class="no-margin">
 							<p style="color: gray; font-size: xx-small;"><?php  echo $valor["desglose"];?></p>														
-							<p class="text-justify mr-4" style="text-transform: none; font-size: small;"><?php  echo $valor["realizado"];?></p>							
+							<p class="text-justify mr-4" style="text-transform: none; font-size: small;"><?php  echo $valor["realizado"];?></p>	
+							<p class="text-justify mr-4" style="text-transform: none; font-size: small;"><?php if ($valor["realizado"] == '0') {echo "En proceso";} else { echo "Realizado";}?></p>													
 							<p class="no-margin text-right text-dark" style="font-size: xx-small;">Fecha de entrega:<br> <?php  echo date('F j', strtotime($valor["fecha"]));?></p>
 						</a>					
 					</li>

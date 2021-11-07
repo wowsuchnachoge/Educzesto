@@ -1,6 +1,6 @@
 <?php  
 	include("../interactDB.php");
-	include("../bitacora.php");
+	include("../bitacoraAlumnos.php");
 	include("../../includes/cleanText.php");
 
 	$idUsuario = (int) $_POST["idUsuario"];

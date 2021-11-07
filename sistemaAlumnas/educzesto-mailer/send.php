@@ -61,10 +61,10 @@ try {
     // Revisar de que cuenta se está enviando para firma
     if($from == "EduCzesto") {
         // EduCzesto
-        if (!$mail->AddEmbeddedImage("./assets/LogoEduczesto.png", 'EduCzesto.png', 'EduCzesto.png')) {
-            echo 'Failed to attach EduCzesto signature';
+        if (!$mail->AddEmbeddedImage("./assets/AgustinosRecoletos.png", 'AgustinosRecoletos.png', 'AgustinosRecoletos.png')) {
+            echo 'Failed to attach Agustinos Recoletos signature';
         } else {
-            $mail->Body .= '<br><br>Atentamente,<br><br><img alt="EduCzesto" src="cid:EduCzesto.png" style="width:150px">';
+            $mail->Body .= '<br><br>Atentamente,<br><br><img alt="Agustinos Recoletos" src="cid:AgustinosRecoletos.png" style="width:150px">';
         }
     } else {
         // Información Parroquia Madre de Dios de Czestochowa
@@ -77,7 +77,7 @@ try {
     $mail->Body .= '</body></html>';
 
     if(isset($_POST['test'])) {
-        $table = 'test_mail';
+        $table = 'mail';
     } else {
         $table = 'mail';
     }

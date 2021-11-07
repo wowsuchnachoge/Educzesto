@@ -13,7 +13,7 @@ class Bitacora{
 						  bitacoras (
 						    desglose,
 						    idUsuario,
-						    fecha
+						    fechaEntrada
 						  )
 						VALUES
 						  (
@@ -28,11 +28,13 @@ class Bitacora{
 	public function consultaBitacoraId($idUsuario){
 
 		$query = "	SELECT
+						  idUsuario,
 						  desglose,
-						  idBitacora,
-						  fecha
+						  fechaEntrada, 
+						  fechaEntrega, 
+						  realizado
 						FROM
-						  bitacoras
+						  bitacoras_alumnos
 						WHERE
 						  idUsuario = '%d'
 						ORDER BY idBitacora DESC";
@@ -43,7 +45,7 @@ class Bitacora{
 	}
 	public function eliminaBitacora($idBitacora){
 
-		$query = "	DELETE FROM bitacoras
+		$query = "	DELETE FROM bitacoras_alumnos
 						WHERE idBitacora = '%d'";
 
 		$parameters = array($idBitacora);

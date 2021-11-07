@@ -5,7 +5,7 @@ body {
 
 body {
 	margin: 0;
-	background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(2,131,59,1) 100%);
+	/* background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(2,131,59,1) 100%); */
 	font-family: sans-serif;
 	font-weight: 100;
 }
@@ -17,7 +17,7 @@ body {
 	transform: translate(-50%, -50%);
 }
 
-table {
+/* table {
 	width: 800px;
 	border-collapse: collapse;
 	overflow: hidden;
@@ -33,4 +33,66 @@ td {
 
 th {
 	text-align: left;
+} */
+
+  /* TABLE CSS */
+  html,
+body {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	/* background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(2,131,59,1) 100%); */
+	font-family: sans-serif;
+	font-weight: 100;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+#minutasTable {
+	width: 800px;
+	border-collapse: collapse;
+	overflow: hidden;
+	box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+#thTable,
+#tdTable {
+	padding: 15px;
+	background-color: rgba(255,255,255,0.2);
+}
+
+#thTable {
+	text-align: left;
+}
+
+thead {
+	#tdTable {
+		background-color: #55608f;
+	}
+}
+
+tbody {
+	tr {
+		&:hover {
+			background-color: rgba(255,255,255,0.3);
+		}
+	}
+	#tdTable {
+		position: relative;
+		&:hover {
+			&:before {
+				content: "";
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: -9999px;
+				bottom: -9999px;
+				background-color: rgba(255,255,255,0.2);
+				z-index: -1;
+			}
+		}
+	}
 }

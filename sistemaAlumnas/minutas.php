@@ -229,8 +229,7 @@
 								</div>
 								<br>																						
 							</section>
-																		
-							<?php }else{?>
+							<?php } else{ ?>
 							<div class="alert alert-dismissible alert-warning">
 							<h4 class="alert-heading">No existen minutas en este periodo</h4>
 							<p class="mb-0">Puedes agregar una nueva minuta dando clic en el botón de <strong>"Nueva minuta"</strong>.</p>

@@ -25,42 +25,38 @@
 <body>
 	<header>
 		<?php include("php/includes/dynamicHeader.php");?>
+		<script type="text/javascript" src="js/plataformas.js"></script>
+		<link href="css/plataformas.css" rel="stylesheet" />
 	</header>
 	<main>
 		<div class="container">
             <br>
 			<section value="accesos" class="d-lg-inline d-xl-inline">
-				<div class="card mb-3">
-					<div class="card-header font-weight-bold"><i class="icon-globe text-dark mr-2"></i>Plataformas</div>
-					<table class="table table-hover">
-						<thead>
-							<tr>
-								<th scope="col">Plataforma</th>
-								<th scope="col" style="width: 40%">Información</th>
-								<th scope="col">Acceso</th>
-							</tr>
-						</thead>
-						<tbody>
-						<?php foreach($arregloPlataformas as $valor){?>
-							<tr>
-								<td><p><em><?echo ucfirst($valor["plataforma"]);?></em></p></td>
-								<td>
-									<details>
-										<summary>Datos de la plataforma</summary>
-										<hr>
-										<p class="text-justify"><?echo $valor["descripcion"];?></p>
-									</details>
-								</td>
-								<td>
-									<a href="https:<?echo $valor["link"];?>" target="_blank" class="btn btn-dark btn-sm">Acceder</a>
-								</td>
-							</tr>
-						<?}?> 
-						</tbody>
-					</table>	
+				<div class="p-2 mt-1 rounded">
+					<div class="mb-3" style="background: linear-gradient(0deg, #ECF8EC6E 0%, #5DD9728A 100%);">
+						<div class="card-header font-weight-bold"><i class="icon-globe text-dark mr-2"></i>Plataformas</div>
+						<table class="table table-hover" style="background: linear-gradient(0deg, #ECF8EC6E 0%, #5DD9728A 100%);">
+							<thead>
+								<tr>
+									<th scope="col"> </th>
+									<th scope="col">Plataforma</th>
+									<th scope="col" style="width: 40%">Información sobre esta plataforma</th>								
+								</tr>
+							</thead>
+							<tbody>
+							<?php foreach($arregloPlataformas as $valor){?>
+								<tr>
+									<td><p> <i class="icon-user text-dark"></i></p></td>
+									<td><p><?echo ucfirst($valor["plataforma"]);?></p></td>
+									<td><p class="text-justify" style="font-size: xx-small;"><?echo $valor["descripcion"];?></p></td>									
+									<td style="vertical-align: middle;"><a href="https:<?echo $valor["link"];?>" target="_blank" class="btn btn-success btn-sm rounded-pill">Acceder <i class="icon-mouse text-light"></i</a></td>
+								</tr>
+							<?}?> 
+							</tbody>
+						</table>	
+					</div>
 				</div>
-				
-			</section>
+			</section>			
 		</div>
 	</main>
 	<?php include("php/includes/modals.php");?>

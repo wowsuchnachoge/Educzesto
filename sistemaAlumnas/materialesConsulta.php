@@ -30,182 +30,287 @@
 <body>
 	<header>
 		<?php include("php/includes/dynamicHeader.php");?>
+		<link href="css/materialesConsulta.css" rel="stylesheet" />
 	</header>
 	<main>
 		<div class="container">
-      <br>
-    <div class="col-sm-12 col-lg-8">
-						<div class="card mb-3">
-							<div class="card-header"><i class="icon-folder text-dark mr-2"></i>Material para <strong><?php echo $_SESSION["datosUsuarioActivo"]["nombreCompleto"];?></strong></div>
-							<div class="card-body">
-							<details>
-							<summary>Lista de archivos</summary>
-							<br>
-								<?php /*foreach($listaMateriales as $valor){*/?>
-								<div class="row">
-									<div class="col"><p><i class="icon-newspaper text-dark"></i><?php echo $valor["nombre"];?></p></div>
-									<div class="col mt-2">
-										<?php if($valor["flagLink"] == 1){?>
-										<a href="<?php echo "https://".$valor["url"];?>" type="button" class="btn btn-secondary float-right ml-1" target="_blank"><i class="icon-link text-light"></i></a><?php }?>
-										<?php if($valor["flagMaterial"] == 1){?>
-										 <a href="<?php echo 'archivos/'.$valor['idMaterial'].'.pdf';?>" type="button" class="btn btn-secondary float-right" target="_blank"><i class="icon-newspaper text-light"></i></a><?php }?>
-									</div>
-								</div>
-								<hr>
-								<?php /*}*/?>
-							</details>
-							</div>
-						</div>
-			</div>
-			<section value="linksAlumno" class="mt-3">
-				<div class="row mb-3">
-					<div class="col-12">
-						<div class="card mb-3">
-							<div class="card-header"><i class="icon-archive text-dark mr-2"></i>Material de consulta</div>
-							<div class="card-body">
-
-
-<!-- Acordeon: 
-––––––––––––––––––––––––––––––––––––––––––––––––– -->
-<div id="accordion">
-  <div class="card">
-    <div class="card-header">
-      <h5 class="mb-0">
-        <button class="btn btn-link" data-toggle="collapse" data-target="#collapse1">
-          <i class="icon-folder text-dark mr-2"></i>Manejo de plataformas
-        </button>
-      </h5>
-    </div>
-    <div id="collapse1" class="collapse" data-parent="#accordion">
-      <div class="card-body">
-			<a type="button" class="btn btn-link" target="_blank" href="archivos/materialesConsulta/manejoPlataformas/1.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Khana Academy</a><br>
-			<a type="button" class="btn btn-link" target="_blank" href="archivos/materialesConsulta/manejoPlataformas/2.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Canva</a><br>
-			<a type="button" class="btn btn-link" target="_blank" href="archivos/materialesConsulta/manejoPlataformas/3.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Facebook</a><br>
+    <br>
+  <div class="row">
+    <div class="col-sm">
+      <div class="component">
+          <ul class="align">
+            <li>
+              <figure class='book'>
+                <!-- Front -->
+                <ul class='hardcover_front'>
+                  <li>                    
+                    <div class="coverDesign green">
+                      <h1>Manejo</h1>
+                      <p>de Plataformas</p>
+                    </div>
+                  </li>
+                  <li></li>
+                </ul>
+                <!-- Pages -->
+                <ul class='page'>
+                  <li></li>
+                  <li>
+                    <br>
+                    <a class="btn-book" target="_blank" href="archivos/materialesConsulta/manejoPlataformas/1.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Khan Academy</a><br>
+                    <a class="btn-book" target="_blank" href="archivos/materialesConsulta/manejoPlataformas/2.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Canva</a><br>
+                    <a class="btn-book" target="_blank" href="archivos/materialesConsulta/manejoPlataformas/3.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Facebook</a><br>
+                  </li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </ul>
+                <!-- Back -->
+                <ul class='hardcover_back'>
+                  <li></li>
+                  <li></li>
+                </ul>
+                <ul class='book_spine'>
+                  <li></li>
+                  <li></li>
+                </ul>
+              </figure>
+              <br>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse2">
-          <i class="icon-folder text-dark mr-2"></i>Templates
-        </button>
-      </h5>
-    </div>
-    <div id="collapse2" class="collapse" data-parent="#accordion">
-      <div class="card-body">
-			<a type="button" class="btn btn-link" target="_blank" href="archivos/materialesConsulta/templates/1.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Diploma alumnas</a><br>
-			<a type="button" class="btn btn-link" target="_blank" href="archivos/materialesConsulta/templates/2.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Ejemplo infografía</a><br>
-			<a type="button" class="btn btn-link" target="_blank" href="archivos/materialesConsulta/templates/3.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Línea gráfica</a><br>
-			<a type="button" class="btn btn-link" target="_blank" href="archivos/materialesConsulta/templates/4.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Valor del mes</a><br>
+    <div class="col-sm">
+      <div class="component">
+          <ul class="align">
+            <li>
+              <figure class='book'>
+                <!-- Front -->
+                <ul class='hardcover_front'>
+                  <li>
+                    <div class="coverDesign green">
+                      <h1>Templates</h1>
+                      <p>para Tutores</p>
+                    </div>
+                  </li>
+                  <li></li>
+                </ul>
+                <!-- Pages -->
+                <ul class='page'>
+                  <li></li>
+                  <li>
+                    <br>
+                    <a class="btn-book" target="_blank" href="archivos/materialesConsulta/templates/1.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Diploma alumnas</a><br>
+                    <a class="btn-book" target="_blank" href="archivos/materialesConsulta/templates/2.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Infografía</a><br>
+                    <a class="btn-book" target="_blank" href="archivos/materialesConsulta/templates/3.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Línea gráfica</a><br>
+                    <a class="btn-book" target="_blank" href="archivos/materialesConsulta/templates/4.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Valor del mes</a><br>
+                  </li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </ul>
+                <!-- Back -->
+                <ul class='hardcover_back'>
+                  <li></li>
+                  <li></li>
+                </ul>
+                <ul class='book_spine'>
+                  <li></li>
+                  <li></li>
+                </ul>
+              </figure>
+              <br>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse3">
-          <i class="icon-folder text-dark mr-2"></i>Material para tutores
-        </button>
-      </h5>
-    </div>
-    <div id="collapse3" class="collapse" data-parent="#accordion">
-      <div class="card-body">
-			<a type="button" class="btn btn-link" target="_blank" href="archivos/materialesConsulta/materialTutores/1.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Plan de trabajo</a><br>
-			<a type="button" class="btn btn-link" target="_blank" href="archivos/materialesConsulta/materialTutores/2.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Trabajadoras del hogar y discriminación</a><br>
-			<a type="button" class="btn btn-link" target="_blank" href="archivos/materialesConsulta/materialTutores/3.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Trabajadoras domésticas_2015</a><br>
+    <div class="col-sm">
+      <div class="component">
+          <ul class="align">
+            <li>
+              <figure class='book'>
+                <!-- Front -->
+                <ul class='hardcover_front'>
+                  <li>
+                    <div class="coverDesign green">
+                      <h1>Material</h1>
+                      <p>para Tutores</p>
+                    </div>
+                  </li>
+                  <li></li>
+                </ul>
+                <!-- Pages -->
+                <ul class='page'>
+                  <li></li>
+                  <li>
+                    <br>
+                    <a class="btn-book" target="_blank" href="archivos/materialesConsulta/materialTutores/1.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Plan de trabajo</a><br>
+                    <a class="btn-book" target="_blank" href="archivos/materialesConsulta/materialTutores/2.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Trabajadoras del hogar y discriminación</a><br>
+                    <a class="btn-book" target="_blank" href="archivos/materialesConsulta/materialTutores/3.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Trabajadoras domésticas_2015</a><br>
+                    </li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </ul>
+                <!-- Back -->
+                <ul class='hardcover_back'>
+                  <li></li>
+                  <li></li>
+                </ul>
+                <ul class='book_spine'>
+                  <li></li>
+                  <li></li>
+                </ul>
+              </figure>
+              <br>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
   </div>
-  <div class="card">
-    <div class="card-header">
-      <h5 class="mb-0">
-        <button class="btn btn-link" data-toggle="collapse" data-target="#collapse4">
-          <i class="icon-folder text-dark mr-2"></i>Infografías
-        </button>
-      </h5>
-    </div>
-    <div id="collapse4" class="collapse" data-parent="#accordion">
-      <div class="card-body">
-			<a type="button" class="btn btn-link" target="_blank" href="archivos/materialesConsulta/infografias/1.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Datos personales</a><br>
-			<a type="button" class="btn btn-link" target="_blank" href="archivos/materialesConsulta/infografias/2.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Asesoría en parroquia Czestochowa</a><br>
-			<a type="button" class="btn btn-link" target="_blank" href="archivos/materialesConsulta/infografias/3.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Información para alumnas en tiempos de pandemia</a><br>			
-			<a type="button" class="btn btn-link" target="_blank" href="archivos/materialesConsulta/infografias/4.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Ortografía</a><br>
+  <div class="row">
+    <div class="col-sm">
+      <div class="component">
+          <ul class="align">
+            <li>
+              <figure class='book'>
+                <!-- Front -->
+                <ul class='hardcover_front'>
+                  <li>
+                    <div class="coverDesign green">
+                      <h1>Infografías</h1>
+                      <p>de ejemplo</p>
+                    </div>
+                  </li>
+                  <li></li>
+                </ul>
+                <!-- Pages -->
+                <ul class='page'>
+                  <li></li>
+                  <li>
+                    <br>
+                    <a class="btn-book" target="_blank" href="archivos/materialesConsulta/infografias/1.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Datos personales</a><br>
+                    <a class="btn-book" target="_blank" href="archivos/materialesConsulta/infografias/2.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Asesoría en parroquia Czestochowa</a><br>
+                    <a class="btn-book" target="_blank" href="archivos/materialesConsulta/infografias/3.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Información para alumnas en tiempos de pandemia</a><br>			
+                    <a class="btn-book" target="_blank" href="archivos/materialesConsulta/infografias/4.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Ortografía</a><br>
+                  </li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </ul>
+                <!-- Back -->
+                <ul class='hardcover_back'>
+                  <li></li>
+                  <li></li>
+                </ul>
+                <ul class='book_spine'>
+                  <li></li>
+                  <li></li>
+                </ul>
+              </figure>
+              <br>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </div>
-
-  <br>
-  <h5>Guías y diagnósticos</h5>
-  <div class="card">
-    <div class="card-header">
-      <h5 class="mb-0">
-        <button class="btn btn-link" data-toggle="collapse" data-target="#collapse5">
-          <i class="icon-folder text-dark mr-2"></i>Guías generales
-        </button>
-      </h5>
-    </div>
-    <div id="collapse5" class="collapse" data-parent="#accordion">
-      <div class="card-body">
-			<a type="button" class="btn btn-link" target="_blank" href="archivos/materialesConsulta/guias/1.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Construyendo aprendizaje</a><br>
-			<a type="button" class="btn btn-link" target="_blank" href="archivos/materialesConsulta/guias/2.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Correo electrónico</a><br>
-			<a type="button" class="btn btn-link" target="_blank" href="archivos/materialesConsulta/guias/3.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Curso ortografía</a><br>
-			<a type="button" class="btn btn-link" target="_blank" href="archivos/materialesConsulta/guias/4.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Guía internet</a><br>
+    <div class="col-sm">
+      <div class="component">
+          <ul class="align">
+            <li>
+              <figure class='book'>
+                <!-- Front -->
+                <ul class='hardcover_front'>
+                  <li>
+                    <div class="coverDesign green">
+                      <h1>Guías</h1>
+                      <p>generales</p>
+                    </div>
+                  </li>
+                  <li></li>
+                </ul>
+                <!-- Pages -->
+                <ul class='page'>
+                  <li></li>
+                  <li>
+                    <br>
+                    <a class="btn-book" target="_blank" href="archivos/materialesConsulta/guias/1.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Construyendo aprendizaje</a><br>
+                    <a class="btn-book" target="_blank" href="archivos/materialesConsulta/guias/2.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Correo electrónico</a><br>
+                    <a class="btn-book" target="_blank" href="archivos/materialesConsulta/guias/3.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Curso ortografía</a><br>
+                    <a class="btn-book" target="_blank" href="archivos/materialesConsulta/guias/4.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Guía internet</a><br>
+                  </li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </ul>
+                <!-- Back -->
+                <ul class='hardcover_back'>
+                  <li></li>
+                  <li></li>
+                </ul>
+                <ul class='book_spine'>
+                  <li></li>
+                  <li></li>
+                </ul>
+              </figure>
+              <br>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <h5 class="mb-0">
-        <button class="btn btn-link" data-toggle="collapse" data-target="#collapse6">
-          <i class="icon-folder text-dark mr-2"></i>Contenido detallado
-        </button>
-      </h5>
-    </div>
-    <div id="collapse6" class="collapse" data-parent="#accordion">
-      <div class="card-body">
-			<span class="badge rounded-pill bg-warning text-dark" style="font-size: 14px;">Para ver materiales de consulta, ir a <a href="https://www.box.com">Box</a></span>
+    <div class="col-sm">
+      <div class="component">
+          <ul class="align">
+            <li>
+              <figure class='book'>
+                <!-- Front -->
+                <ul class='hardcover_front'>
+                  <li>
+                    <div class="coverDesign green">
+                      <h1>Diagnósticos</h1>
+                      <p>para Alumnos</p>
+                    </div>
+                  </li>
+                  <li></li>
+                </ul>
+                <!-- Pages -->
+                <ul class='page'>
+                  <li></li>
+                  <li>
+                    <br>
+                    <br>
+                    <a class="btn-book" href="https://drive.google.com/drive/u/1/folders/1_TvnXxHTyWUVzqchXBV-wlLVNCiLXorx">Ver en Google Drive</a>
+                  </li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </ul>
+                <!-- Back -->
+                <ul class='hardcover_back'>
+                  <li></li>
+                  <li></li>
+                </ul>
+                <ul class='book_spine'>
+                  <li></li>
+                  <li></li>
+                </ul>
+              </figure>
+              <br>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
   </div>
-  <div class="card">
-    <div class="card-header">
-      <h5 class="mb-0">
-        <button class="btn btn-link" data-toggle="collapse" data-target="#collapse7">
-          <i class="icon-folder text-dark mr-2"></i>Diagnósticos
-        </button>
-      </h5>
-    </div>
-    <div id="collapse7" class="collapse" data-parent="#accordion">
-      <div class="card-body">
-			<a type="button" class="btn btn-link" target="_blank" href="archivos/materialesConsulta/diagnosticos/1.pdf"><i class="icon-newspaper text-dark mr-2"></i>Examen_diagnostico_primer_grado_2020-2021-1</a><br>
-			<a type="button" class="btn btn-link" target="_blank" href="archivos/materialesConsulta/diagnosticos/2.pdf"><i class="icon-newspaper text-dark mr-2"></i>Examen_diagnostico_segundo_grado_2020-2021-1</a><br>
-			<a type="button" class="btn btn-link" target="_blank" href="archivos/materialesConsulta/diagnosticos/3.pdf"><i class="icon-newspaper text-dark mr-2"></i>Examen_diagnostico_tercer_grado_2020-2021</a><br>
-			<a type="button" class="btn btn-link" target="_blank" href="archivos/materialesConsulta/diagnosticos/4.pdf"><i class="icon-newspaper text-dark mr-2"></i>Examen_diagnostico_cuarto_grado_2020-2021</a><br>
-			<a type="button" class="btn btn-link" target="_blank" href="archivos/materialesConsulta/diagnosticos/5.pdf"><i class="icon-newspaper text-dark mr-2"></i>Examen_diagnostico_quinto_grado_2020-2021</a><br>
-			<a type="button" class="btn btn-link" target="_blank" href="archivos/materialesConsulta/diagnosticos/6.pdf"><i class="icon-newspaper text-dark mr-2"></i>Examen_diagnostico_sexto_grado_2020-2021</a><br>
-			<a type="button" class="btn btn-link" target="_blank" href="archivos/materialesConsulta/diagnosticos/7.pdf"><i class="icon-newspaper text-dark mr-2"></i>Matematicas-secu-l1eso-AYUDA-PARA-EL-MAESTRO-BLOG</a><br>
-			<a type="button" class="btn btn-link" target="_blank" href="archivos/materialesConsulta/diagnosticos/8.pdf"><i class="icon-newspaper text-dark mr-2"></i>Matemticas-secu-2ESO-AYUDA-PARA-EL-MAESTRO-BLOG</a><br>
-			<a type="button" class="btn btn-link" target="_blank" href="archivos/materialesConsulta/diagnosticos/9.pdf"><i class="icon-newspaper text-dark mr-2"></i>Matemticas-secu-3ESO-AYUDA-PARA-EL-MAESTRO-BLOG</a><br>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-		</div>
-	</main>
 	<?php if($tipoUsuario != 1){?><?php include("php/includes/modals.php");?><?php }?>
 </body>
 </html>
+
+<?php 
+	include("php/sql/interactDB.php");
+	include("php/sql/calendario.php");
+
+	$idUsuario = $_POST["idUsuario"];
+
+	$calendario = new Calendario();
+	$arregloFilasCalendario = $calendario->consultaCalendario();
+	// var_dump($arregloFilasCalendario);
+
+?>

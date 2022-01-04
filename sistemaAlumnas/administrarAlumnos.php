@@ -6,7 +6,7 @@
 	include("php/includes/cleanText.php");
 
 	include("php/includes/validaSesionActiva.php");
-	$tituloArchivo = "herramientas.php";
+	$tituloArchivo = "administrarAlumnos.php";
 
 	$usuario = new Usuario();
 	$periodo = new Periodo();
@@ -37,6 +37,7 @@
 
 	<!-- Recursos locales
 	––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<link href="css/administrarAlumnos.css" rel="stylesheet" />	
 	<script type="text/javascript" src="js/herramientas.js"></script>
 </head>
 <body>
@@ -44,64 +45,48 @@
 		<?include("php/includes/dynamicHeader.php");?>
 	</header>
 	<main>
-		<div class="container-fluid mt-3 px-4">
-			<div class="row d-flex justify-content-center">
-				<div class="col-sm-6 col-lg-2 d-none d-sm-block d-sm-none d-md-block d-md-none d-lg-block d-lg-inline d-xl-none d-xl-inline mb-3 p-2 rounded bg-light">
-				 	<div class="card border-secondary text-dark mb-3" style="max-width: 20rem;">
-					  <div class="card-body">
-					    <p class="card-text"><i class="icon-user mr-2 text-success"></i>Perfil</p>
-					    <p class="card-text"><i class="icon-folder mr-2 text-secondary"></i>Documentos</p>
-					    <hr>
-					    <p class="card-text"><i class="icon-db-shape mr-2" style="color: #d6d8db;"></i>Periodo actual</p>
-					    <hr>
-					    <p class="card-text"><i class="icon-up-bold mr-2" style="color: #d6d8db;"></i>Subir perido</p>
-					    <p class="card-text"><i class="icon-down-bold mr-2" style="color: #d6d8db;"></i>Bajar periodo</p>
-					    <hr>
-					    <p class="card-text"><i class="icon-tools mr-2 text-dark"></i>Administrador</p>
-					  </div>
-					</div>
-					<a target="_blank" href="educzesto-mailer/index.html" class="btn btn-dark btn-block" type="button"><i class="icon-mail text-light mr-1"></i>Sistema de correos</a>
-					<a href="herramientasCalendarios.php" class="btn btn-dark btn-block" type="button"><i class="icon-calendar text-light mr-1"></i>Editar calendarios</a>
-					<!-- <hr> -->
-					<!-- <button class="btn btn-dark btn-block" type="button"><i class="icon-archive text-light mr-1"></i>Archivos</button> -->
-
-				</div>
+		<div class="container-fluid mt-3 px-4"><br>
+			<h1><i class="icon-pencil text-dark mr-2"></i> Administrar alumnos</h1>
+			<div class="row d-flex justify-content-center">		
 				<div class="col-sm-12 col-lg-10 d-none d-xl-inline">
 					<section value="tablaAlumnas" class="my-3">
-						<details close>
+						<details open>
 							<summary>Alumnas</summary>
 							<table class="table table-hover">
 								<thead>
 									<tr>
 										<th scope="col" style="width: 30%">Nombre</th>
-										<th scope="col">Acciones</th>
+										<th scope="col"></th>
 									</tr>
 								</thead>
 								<tbody>
 								<!-- Tabla alumnas -->
 								<?php foreach($arregloUsuariosAlumnoTodos as $valor){?>
+									
 									<tr>
-										<td><p><?echo $valor["nombre"]." ".$valor["apellidoPaterno"]." ".$valor["apellidoMaterno"];?></p></td>
 										<td>
-											<form action="perfil.php" method="POST" style="display: inline;">
-												<button type="submit" class="btn btn-success"><i class="icon-user text-light"></i></button>
+										<form action="perfil.php" method="POST" class="chip">										
+											<img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Person" width="96" height="96"> <!-- para HOMBRE usar https://www.w3schools.com/howto/img_avatar.png -->																			
+											<input type="text" name="tituloArchivo" value="<?php echo $tituloArchivo;?>" style="display: none;">
+											<input type="text" name="idUsuario" value="<?php echo $valor["idUsuario"];?>" style="display: none;">
+											<button type="submit" class="chip-trans"><?echo $valor["nombre"]." ".$valor["apellidoPaterno"]." ".$valor["apellidoMaterno"];?></button>										
+										</form>	
+										</td>
+										<td>											
+											<form action="herramientasBitacora.php" method="POST" style="display: inline;">
+												<button class="btn btn-light"><i class="icon-book text-dark mr-2"></i> Leer bitácora</button>
 												<input type="text" name="idUsuario" value="<?php echo $valor["idUsuario"];?>" style="display: none;">
 												<input type="text" name="tituloArchivo" value="<?php echo $tituloArchivo;?>" style="display: none;">
 											</form>
-											<form action="herramientasArchivos.php" method="POST" style="display: inline;">
-												<button class="btn btn-dark">Archivos</button>
-												<input type="text" name="idUsuario" value="<?php echo $valor["idUsuario"];?>" style="display: none;">
-												<input type="text" name="tituloArchivo" value="<?php echo $tituloArchivo;?>" style="display: none;">
-											</form>
-											<div class="btn-group float-right d-lg-none d-xl-block d-xl-none" role="group">
+											<div class="btn-group float-center d-lg-none d-xl-block d-xl-none" role="group">
 												<form action="herramientasEditar.php" method="POST" style="display: inline;">
-													<button type="submit" class="btn btn-secondary"><i class="icon-cog text-light"></i></button>
+													<button type="submit" class="btn btn-danger"><i class="icon-cog text-light"></i></button>
 													<input type="text" name="idUsuario" value="<?php echo $valor["idUsuario"];?>" style="display: none;">
 													<input type="text" name="tituloArchivo" value="<?php echo $tituloArchivo;?>" style="display: none;">
 
 												</form>
 											</div>
-											<button type="button" class="btn <?php if($valor["vista"] == 1){ echo 'btn-dark';}else{echo 'btn-light';}?> float-right mr-1 buttonVista" data-id_usuario="<?php echo $valor["idUsuario"];?>"><?php if($valor["vista"] == 1){ echo 'Desactivar';}else{echo 'Activar';}?></button>
+											<button type="button" class="btn <?php if($valor["vista"] == 1){ echo 'btn-danger';}else{echo 'btn-light';}?> float-right mr-1 buttonVista" data-id_usuario="<?php echo $valor["idUsuario"];?>"><i class="icon-user text-dark mr-2"></i> <?php if($valor["vista"] == 1){ echo 'Desactivar alumna';}else{echo 'Activar alumna';}?></button>
 										</td>
 									</tr>
 								<?}?>

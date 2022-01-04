@@ -22,9 +22,10 @@
 	<!-- Recursos locales
 	––––––––––––––––––––––––––––––––––––––––––––––––– -->
 	<script type="text/javascript" src="js/herramientas.js"></script>
+	<link href="css/herramientasBitacora.css" rel="stylesheet" />
 </head>
 <body>
-	<header class="bg-primary text-white p-3">
+	<header class="bg-warning text-white p-3">
 		<div class="container">
 			<div class="d-flex text-dark">
 				<a class="nav-link text-dark" href="<?php echo $_POST["tituloArchivo"];?>" role="button" style="margin-top: -5px;">
@@ -50,7 +51,9 @@
 										<thead>
 											<tr>
 												<th scope="col" style="width: 20%">Fecha</th>
-												<th scope="col" style="width: 80%">Nota</th>
+												<th scope="col" style="width: 30%">Nota</th>
+												<th scope="col" style="width: 25%">Completado?</th>
+												<th scope="col" style="width: 25%">Visto bueno coordinadores</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -60,6 +63,16 @@
 												<td>
 													<p class="text-justify mr-4"><?php  echo $valor["desglose"];?></p>
 												</td>
+												<td>
+													<form action="php/sql/controladores/cntRegistroBitacoraRealizado.php" method="POST">												
+														<select name="realizado" class="classic mt-2"> <!-- style="color: white; background: #6c757d; border: none; font-size: x-small;" -->
+															<option selected="selected" value="<?php echo $valor["realizado"]?>"><b><?php if ($valor["realizado"] == '0') {echo "En proceso";} else { echo "Realizado";}?></b></option>	
+															<option value="<?php if ($valor["realizado"] == '0') {echo "Realizado";} else { echo "En proceso";}?>"><b><?php if ($valor["realizado"] == '0') {echo "Realizado";} else { echo "En proceso";}?></b></option>													
+														</select>													
+														<input type="text" name="idBitacora" value="<?php echo $idBitacora;?>" hidden>																									
+													</form>	
+												</td>
+												<td><input type="checkbox"></td>												
 											</tr>
 											<?}?>
 										</tbody>

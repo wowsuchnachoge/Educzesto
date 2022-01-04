@@ -21,7 +21,7 @@
 	<script type="text/javascript" src="js/calendarios.js"></script>
 </head>
 <body>
-	<header class="bg-primary text-white p-3">
+	<header class="bg-warning text-white p-3">
 		<div class="container">
 			<div class="d-flex text-dark">
 				<a class="nav-link text-dark" href="herramientas.php" role="button" style="margin-top: -5px;">

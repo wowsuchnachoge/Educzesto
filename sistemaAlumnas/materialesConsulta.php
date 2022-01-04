@@ -35,7 +35,9 @@
 	<main>
 		<div class="container">
     <br>
-  <div class="row">
+    <br>
+    <h1><i class="icon-book text-dark mr-2"></i> Materiales de Consulta</h1>
+    <div class="row">
     <div class="col-sm">
       <div class="component">
           <ul class="align">
@@ -56,9 +58,10 @@
                   <li></li>
                   <li>
                     <br>
+                    <a class="btn-book-google" href="https://drive.google.com/drive/u/1/folders/1Wp3gHGE8B_2TokbmTkYW-jbULSQpa1PY"><i class="icon-folder  text-info mr-2"></i> Ver en Google Drive</a>
+                    <a class="btn-book" target="_blank" href="plataformas.php"><i class="icon-newspaper  text-dark mr-2"></i>Acceso a Plataformas</a><br>
                     <a class="btn-book" target="_blank" href="archivos/materialesConsulta/manejoPlataformas/1.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Khan Academy</a><br>
-                    <a class="btn-book" target="_blank" href="archivos/materialesConsulta/manejoPlataformas/2.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Canva</a><br>
-                    <a class="btn-book" target="_blank" href="archivos/materialesConsulta/manejoPlataformas/3.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Facebook</a><br>
+                    <a class="btn-book" target="_blank" href="archivos/materialesConsulta/manejoPlataformas/2.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Canva</a><br>                    
                   </li>
                   <li></li>
                   <li></li>
@@ -88,7 +91,7 @@
                 <ul class='hardcover_front'>
                   <li>
                     <div class="coverDesign green">
-                      <h1>Templates</h1>
+                      <h1>Plantillas</h1>
                       <p>para Tutores</p>
                     </div>
                   </li>
@@ -99,6 +102,7 @@
                   <li></li>
                   <li>
                     <br>
+                    <a class="btn-book-google" href="https://drive.google.com/drive/u/1/folders/1_TvnXxHTyWUVzqchXBV-wlLVNCiLXorx"><i class="icon-folder  text-info mr-2"></i> Ver en Google Drive</a>
                     <a class="btn-book" target="_blank" href="archivos/materialesConsulta/templates/1.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Diploma alumnas</a><br>
                     <a class="btn-book" target="_blank" href="archivos/materialesConsulta/templates/2.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Infografía</a><br>
                     <a class="btn-book" target="_blank" href="archivos/materialesConsulta/templates/3.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Línea gráfica</a><br>
@@ -143,6 +147,7 @@
                   <li></li>
                   <li>
                     <br>
+                    <a class="btn-book-google" href="https://drive.google.com/drive/u/1/folders/1_TvnXxHTyWUVzqchXBV-wlLVNCiLXorx"><i class="icon-folder  text-info mr-2"></i> Ver en Google Drive</a>
                     <a class="btn-book" target="_blank" href="archivos/materialesConsulta/materialTutores/1.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Plan de trabajo</a><br>
                     <a class="btn-book" target="_blank" href="archivos/materialesConsulta/materialTutores/2.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Trabajadoras del hogar y discriminación</a><br>
                     <a class="btn-book" target="_blank" href="archivos/materialesConsulta/materialTutores/3.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Trabajadoras domésticas_2015</a><br>
@@ -177,7 +182,7 @@
                 <ul class='hardcover_front'>
                   <li>
                     <div class="coverDesign green">
-                      <h1>Infografías</h1>
+                      <h2>Infografías</h2>
                       <p>de ejemplo</p>
                     </div>
                   </li>
@@ -188,10 +193,10 @@
                   <li></li>
                   <li>
                     <br>
+                    <a class="btn-book-google" href="https://drive.google.com/drive/u/1/folders/1_TvnXxHTyWUVzqchXBV-wlLVNCiLXorx"><i class="icon-folder  text-info mr-2"></i> Ver en Google Drive</a>
                     <a class="btn-book" target="_blank" href="archivos/materialesConsulta/infografias/1.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Datos personales</a><br>
-                    <a class="btn-book" target="_blank" href="archivos/materialesConsulta/infografias/2.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Asesoría en parroquia Czestochowa</a><br>
-                    <a class="btn-book" target="_blank" href="archivos/materialesConsulta/infografias/3.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Información para alumnas en tiempos de pandemia</a><br>			
-                    <a class="btn-book" target="_blank" href="archivos/materialesConsulta/infografias/4.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Ortografía</a><br>
+                    <a class="btn-book" target="_blank" href="archivos/materialesConsulta/infografias/2.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Asesoría en la parroquia</a><br>
+                    <a class="btn-book" target="_blank" href="archivos/materialesConsulta/infografias/3.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Información en tiempos de pandemia</a><br>			
                   </li>
                   <li></li>
                   <li></li>
@@ -232,10 +237,10 @@
                   <li></li>
                   <li>
                     <br>
+                    <a class="btn-book-google" href="https://drive.google.com/drive/u/1/folders/1_TvnXxHTyWUVzqchXBV-wlLVNCiLXorx"><i class="icon-folder  text-info mr-2"></i> Ver en Google Drive</a>
                     <a class="btn-book" target="_blank" href="archivos/materialesConsulta/guias/1.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Construyendo aprendizaje</a><br>
                     <a class="btn-book" target="_blank" href="archivos/materialesConsulta/guias/2.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Correo electrónico</a><br>
                     <a class="btn-book" target="_blank" href="archivos/materialesConsulta/guias/3.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Curso ortografía</a><br>
-                    <a class="btn-book" target="_blank" href="archivos/materialesConsulta/guias/4.pdf"><i class="icon-newspaper  text-dark mr-2"></i>Guía internet</a><br>
                   </li>
                   <li></li>
                   <li></li>
@@ -265,7 +270,7 @@
                 <ul class='hardcover_front'>
                   <li>
                     <div class="coverDesign green">
-                      <h1>Diagnósticos</h1>
+                      <h4>Diagnósticos</h4>
                       <p>para Alumnos</p>
                     </div>
                   </li>
@@ -277,7 +282,7 @@
                   <li>
                     <br>
                     <br>
-                    <a class="btn-book" href="https://drive.google.com/drive/u/1/folders/1_TvnXxHTyWUVzqchXBV-wlLVNCiLXorx">Ver en Google Drive</a>
+                    <a class="btn-book-google" href="https://drive.google.com/drive/u/1/folders/1_TvnXxHTyWUVzqchXBV-wlLVNCiLXorx"><i class="icon-folder  text-info mr-2"></i> Ver en Google Drive</a>
                   </li>
                   <li></li>
                   <li></li>

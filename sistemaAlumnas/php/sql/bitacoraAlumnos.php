@@ -10,7 +10,7 @@ class Bitacora{
 	public function registroBitacora($idUsuario, $inputContenidoBitacora, $fechaActual){
 
 		$query = "	INSERT INTO
-						  bitacoras (
+						  bitacoras_alumnos (
 						    desglose,
 						    idUsuario,
 						    fechaEntrada
@@ -43,6 +43,24 @@ class Bitacora{
 		$this->baseDatos->selectDB($query, $parameters);
 		return $this->baseDatos->getMultiFetchAssocDB();
 	}
+
+	public function consultaBitacoraAlumnosId($idUsuario){
+
+		$query = "	SELECT
+						  desglose,
+						  idBitacora,
+						  fechaEntrega
+						FROM
+						  bitacoras_alumnos
+						WHERE
+						  idUsuario = '%d'
+						ORDER BY idBitacora DESC";
+
+		$parameters = array($idUsuario);
+		$this->baseDatos->selectDB($query, $parameters);
+		return $this->baseDatos->getMultiFetchAssocDB();
+	}
+
 	public function eliminaBitacora($idBitacora){
 
 		$query = "	DELETE FROM bitacoras_alumnos

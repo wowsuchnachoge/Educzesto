@@ -21,7 +21,7 @@
 					<span>&nbsp;&nbsp;&nbsp;Seguimiento Tutores&nbsp;&nbsp;&nbsp;</span>
 					<div class="dropdown-content">
 						<p><a href="minutas.php" style="color: black; text-decoration: none;">Minutas</a></p>
-						<p><a href="bitacoraTutores.php" style="color: black; text-decoration: none;">Bitacora de tutores</a></p>
+						<p><a href="bitacoraTutores.php" style="color: black; text-decoration: none;">Mi Bitácora</a></p>
 						<p><a href="plataformas.php" style="color: black; text-decoration: none;">Accesos a Plataformas</a></p>   
                         <p><a href="materialesConsulta.php" style="color: black; text-decoration: none;">Material de consulta</a></p>                 
 					</div>
@@ -31,9 +31,9 @@
 					<div class="dropdown nav-link">
 					<span>&nbsp;&nbsp;&nbsp;Seguimiento Alumnado&nbsp;&nbsp;&nbsp;</span>
 					<div class="dropdown-content">
-                        <p><a href="bitacoraAlumnos.php" style="color: black; text-decoration: none;">Bitacora de alumnos</a></p>
-                        <p><a href="alumnos.php" style="color: black; text-decoration: none;">Alumnos asignados</a></p>
-                        <p><a href="materiales.php" style="color: black; text-decoration: none;">Enviar material para alumnos</a></p>
+                        <p><a href="alumnos.php" style="color: black; text-decoration: none;">Perfiles de Alumnos</a></p>
+                        <p><a href="bitacoraAlumnos.php" style="color: black; text-decoration: none;">Bitacora de alumnos</a></p>                        
+                        <!-- <p><a href="materiales.php" style="color: black; text-decoration: none;">Enviar material para alumnos</a></p> -->
                         <p><a href="ligasParaAlumnos.php" style="color: black; text-decoration: none;">Ligas de consulta para alumnos</a></p>
 					</div>
 					</div>

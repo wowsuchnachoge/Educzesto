@@ -31,6 +31,7 @@
 	<main>
 		<div class="container">
             <br>
+			<h1><i class="icon-globe text-dark mr-2"></i> Plataformas</h1>
 			<section value="accesos" class="d-lg-inline d-xl-inline">
 				<div class="p-2 mt-1 rounded">
 					<div class="mb-3" style="background: linear-gradient(0deg, #ECF8EC6E 0%, #5DD9728A 100%);">
@@ -56,7 +57,7 @@
 						</table>	
 					</div>
 				</div>
-			</section>			
+			</section>						
 		</div>
 	</main>
 	<?php include("php/includes/modals.php");?>

@@ -77,11 +77,13 @@
 	</header>
 	<main>
 		<br>
+		<br>		
 		<div class="row">
 			<div class="col-8">				
-				<div class="container-fluid mt-3 px-4">	
+				<div class="container-fluid mt-3 px-4">											
 				<div class="row d-flex justify-content-center">
-					<div class="col-sm-6 col-lg-2 d-none d-sm-block d-sm-none d-md-block d-md-none d-lg-block d-lg-inline d-xl-none d-xl-inline mb-3 p-2 rounded bg-light" style="display: none !important;">
+				<h1><i class="icon-doc-text text-dark mr-2"></i> Minutas</h1>
+				<div class="col-sm-6 col-lg-2 d-none d-sm-block d-sm-none d-md-block d-md-none d-lg-block d-lg-inline d-xl-none d-xl-inline mb-3 p-2 rounded bg-light" style="display: none !important;">
 						<button class="btn btn-dark btn-block" type="button" data-toggle="modal" data-target=".modalNuevaMinuta"><i class="icon-plus text-light"></i>Nueva minuta</button>
 						<hr>
 						<form action="visualizaMinuta.php" method="POST">

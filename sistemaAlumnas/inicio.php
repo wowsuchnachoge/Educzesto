@@ -122,7 +122,7 @@
                                     Cuentas de EduCzesto
                                 </li>
                             </ul>
-                            <div class="d-grid"><a class="btn btn-outline-primary" href="#!">Ir a tutores</a></div>
+                            <div class="d-grid"><a class="btn btn-outline-primary" href="plataformas.php">Ir a bitácora</a></div>
                         </div>
                     </div>
                 </div>
@@ -141,14 +141,14 @@
                                 </li>
                                 <li class="mb-2">
                                     <i class="bi bi-check text-primary"></i>
-                                    Ligas de consulta
+                                    Bitácoras
                                 </li>
                                 <li class="mb-2">
                                     <i class="bi bi-check text-primary"></i>
-                                    Material para alumnos
+                                    Ligas de consulta
                                 </li>
                             </ul>
-                            <div class="d-grid"><a class="btn btn-outline-primary" href="#!">Ir a alumnos</a></div>
+                            <div class="d-grid"><a class="btn btn-outline-primary" href="alumnos.php">Ir a alumnos</a></div>
                         </div>
                     </div>
                 </div>

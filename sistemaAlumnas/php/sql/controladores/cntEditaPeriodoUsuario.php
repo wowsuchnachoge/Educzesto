@@ -22,6 +22,6 @@
 
 	$usuario->cierraBaseDatos();
 	$periodo->cierraBaseDatos();
-	header("Location: ../../../herramientas.php");
+	header("Location: ../../../administrarTutores.php");
 
 ?>

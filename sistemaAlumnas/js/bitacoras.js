@@ -55,4 +55,35 @@ $(document).ready(function(){
 			window.location.href = 'http://educzesto.org/login/bitacoraTutores.php';
 		}});
 	});
+	
+	$(".buttonEliminaBitacoraHistorico").click(function(evento){
+
+		let idBitacora = $(this).data("id_bitacora");
+		$(this).closest('tr').remove();
+
+		let url = "http://educzesto.org/login/php/sql/ajax/eliminaBitacoraAlumnos.php?idBitacora="+idBitacora;
+		// let url = "http://localhost/sistemaAlumnas2021/codigo/v11/php/sql/ajax/eliminaBitacora.php?idBitacora="+idBitacora;
+
+		$.ajax({url:url, success: function(result){			
+			console.log(result);
+			window.location.href = 'http://educzesto.org/login/bitacoraAlumnos.php';
+		}});
+	});
+
+	$(".buttonCambiarEstadoBitacoraAlumnos").click(function (evento) {
+
+		let idBitacora = $(this).data("id_bitacora");
+		let estadoBitacora = $(this).data("estado_bitacora");
+		
+		let url = "http://educzesto.org/login/php/sql/ajax/cambiarEstadoBitacora.php?idBitacora=" + idBitacora + "&estadoBitacora=" + estadoBitacora;		
+
+		$.ajax({
+			url: url, success: function (result) {
+				console.log(result);
+				console.log(idBitacora);
+				console.log(url);
+				
+			}
+		});
+	});
 });

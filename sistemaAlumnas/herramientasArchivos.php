@@ -20,7 +20,7 @@
 	<script type="text/javascript" src="js/materiales.js"></script>
 </head>
 <body>
-	<header class="bg-primary text-white p-3">
+	<header class="bg-warning text-white p-3">
 		<div class="container">
 			<div class="d-flex text-dark">
 				<a class="nav-link text-dark" href="<?php echo $_POST["tituloArchivo"];?>" role="button" style="margin-top: -5px;">

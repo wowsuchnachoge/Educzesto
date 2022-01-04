@@ -44,7 +44,7 @@
 <html>
 <head>
 	<?include("php/includes/head.html");?>
-	<title>Bitácora</title>
+	<title>Mi Bitácora</title>
 	<link rel="stylesheet" href="./css/bitacoras.css">
 </head>
 <body>
@@ -58,32 +58,29 @@
 	<br>	
 	<main>
 		<div class="container mt-3">
-			<h1><i class="icon-book text-dark mr-2"></i> Mi bitácora</h1>
+			<h1><i class="icon-book text-dark mr-2"></i> Bitácora de <u><b><?php  echo $_SESSION["datosUsuarioActivo"]["nombre"];?></b></u></h1>
 			<br>
 		</div>
 		<div class="row">
 			<div class="col-8">
 				<ul id="listPostit">
-					<?php foreach($arregloBitacora as $valor){?>				
+					<?php foreach($arregloBitacora as $valor){?>
 					<li id="postit">
 						<a>
-							<h6 class="no-margin text-left"><b><?php  echo date('F j', strtotime($valor["fecha"]));?></b></h6>
-							<p class="text-danger buttonEliminaBitacora no-margin text-left" data-id_bitacora="<?php  echo $valor['idBitacora'];?>" style="font-size: xx-small;">Eliminar <i class="icon-trash text-danger"></i></p>							
-							<form action="php/sql/controladores/cntRegistroAcuerdoRealizado.php" method="POST">												
-								<select name="realizado" class="classic mt-2"> <!-- style="color: white; background: #6c757d; border: none; font-size: x-small;" -->
+							<h6 class="no-margin text-center"><b><?php  echo date('F j', strtotime($valor["fecha"]));?></b></h6>
+							<p class="text-danger buttonEliminaBitacora no-margin text-center" data-id_bitacora="<?php  echo $valor['idBitacora'];?>" style="font-size: xx-small;">Eliminar <i class="icon-trash text-danger"></i></p>												
+							<hr class="no-margin">
+							<p style="color: gray; font-size: xx-small;"><?php  echo $valor["desglose"];?></p>
+							<hr class="no-margin">																				
+							<p class="no-margin text-center text-dark" style="font-size: x-small; margin-top: 5px;"><b><i class="icon-calendar text-dark mr-1"></i>Fecha de entrega:</b><br><?php  echo date('F j', strtotime($valor["fecha"]));?></p>
+							<form action="php/sql/controladores/cntRegistroAcuerdoRealizado.php" method="POST">
+								<select name="realizado" class="classic mt-2" style="font-size: xx-small;"> 
 									<option selected="selected" value="<?php echo $valor["realizado"]?>"><b><?php if ($valor["realizado"] == '0') {echo "En proceso";} else { echo "Realizado";}?></b></option>	
 									<option value="<?php if ($valor["realizado"] == '0') {echo "Realizado";} else { echo "En proceso";}?>"><b><?php if ($valor["realizado"] == '0') {echo "Realizado";} else { echo "En proceso";}?></b></option>													
-								</select>		
-								<button onclick="showGuardado()"type="submit" class="btn btn-light btn-sm float-left mt-2 buttonCambiarEstado" style="font-size: xx-small;" data-id_acuerdo="<?php echo $valor["idAcuerdo"];?>" data-estado_acuerdo="<?php echo $valor["realizado"];?>"><i class="icon-floppy text-dark"></i>Guardar estado</button>											
+								</select>					
+								<button onclick="showGuardado()"type="submit" class="btn btn-dark btn-sm float-right mt-2 buttonCambiarEstado" style="font-size: xx-small; margin-left: 5px;" data-id_bitacora="<?php echo $valor["idBitacora"];?>" data-estado_bitacora="<?php echo $valor["realizado"];?>"><i class="icon-floppy text-white"></i>Guardar</button>					
 								<input type="text" name="idAcuerdo" value="<?php echo $idAcuerdo;?>" hidden>																									
-							</form>	
-							
-							<!-- <button class="btn btn-danger btn-sm buttonEliminaBitacora" data-id_bitacora="<?php  echo $valor['idBitacora'];?>" style="font-size: xx-small;">Eliminar<i class="icon-trash text-light"></i></button> -->
-							<hr class="no-margin">
-							<p style="color: gray; font-size: xx-small;"><?php  echo $valor["desglose"];?></p>														
-							<p class="text-justify mr-4" style="text-transform: none; font-size: small;"><?php  echo $valor["realizado"];?></p>	
-							<p class="text-justify mr-4" style="text-transform: none; font-size: small;"><?php if ($valor["realizado"] == '0') {echo "En proceso";} else { echo "Realizado";}?></p>													
-							<p class="no-margin text-right text-dark" style="font-size: xx-small;">Fecha de entrega:<br> <?php  echo date('F j', strtotime($valor["fecha"]));?></p>
+							</form>							
 						</a>					
 					</li>
 					<?}?>				
@@ -103,7 +100,7 @@
 								<p class="ml-1 mt-1" id="contadorCaracteres"><small><span id="caracteresRestantes">300</span>/300</small></p> -->
 								<!-- <span class="badge bg-danger mb-2 mr-1 text-light" id="adviseMaximoCaracteres" style="display: none;">Has alcanzado el limite máximo de caracteres.</span>																																		 -->
 								<p> <input type="text" name="idUsuario" value="<?php echo $idUsuario;?>" style="display: none;"> </p>
-								<div style="float:right;"> <button id="agregarBitacoraButton" type="submit" class="btn btn-success btn-sm float-right mt-2"><i class="icon-plus text-light"></i></button> </div>								
+								<div style="float:right;"> <button id="agregarBitacoraButton" type="submit" class="btn btn-success btn-sm float-right mt-2" hidden><i class="icon-plus text-light"></i></button> </div>								
 							</div>								 
 							<div class="tab">
 								<h6>¿Cuál es la fecha de entrega?</h6>

@@ -37,7 +37,7 @@
 	<script type="text/javascript" src="js/herramientas.js"></script>
 </head>
 <body>
-	<header class="bg-primary text-white p-3">
+	<header class="bg-warning text-white p-3">
 		<div class="container">
 			<div class="d-flex text-dark">
 				<a class="nav-link text-dark" href="<?php echo $_GET["tituloArchivo"];?>" role="button" style="margin-top: -5px;">
@@ -49,6 +49,8 @@
 	</header>
 	<main>
 		<div class="container mt-3">
+			<h1><i class="icon-pencil text-dark"></i> Asignar alumnos</h1>
+			<p>Haga click sobre los botones de "Asignar" para asignarle o quitarle un alumno a <b><?php  echo $usuario->datosUsuario["nombre"];?></b></p>
 			<section value="listaAlumnas">
 				<div class="row">
 					<div class="col-12">
@@ -72,7 +74,7 @@
 											<tr>
 												<td><p><?echo $valor["nombre"]." ".$valor["apellidoPaterno"]." ".$valor["apellidoMaterno"];?></p></td>
 												<td>
-													<button type="button" class="btn <?php if(in_array($valor["idUsuario"], $arregloAlumnasAsignadas)){echo 'btn-success';}else{echo 'btn-dark';}?> buttonAsignar" data-id_alumno="<?php echo $valor["idUsuario"];?>" data-id_tutor="<?php echo $idUsuario;?>"><i class="icon-user"></i></button>
+													<button type="button" class="btn <?php if(in_array($valor["idUsuario"], $arregloAlumnasAsignadas)){echo 'btn-success';}else{echo 'btn-dark';}?> buttonAsignar" data-id_alumno="<?php echo $valor["idUsuario"];?>" data-id_tutor="<?php echo $idUsuario;?>"><i class="icon-user"></i><?php if(in_array($valor["idUsuario"], $arregloAlumnasAsignadas)){echo ' Alumno asignado ';}else{echo 'Asignar este alumno';}?></button>
 												</td>
 											</tr>
 										<?}?>
